@@ -3,24 +3,35 @@ using namespace std;
 
 class Solution {
 public:
-	string removeDuplicates(string s) {
-		stack<char> st;
-		for(int i = 0; i < s.size(); i++) {
-			if(!st.empty() && st.top() == s[i]) {
-				st.pop();
-			} else {
-				st.push(s[i]);
+	int minimumTotal(vector<vector<int>>& triangle) {
+		int res = INT_MAX;
+		int rows = triangle.size();
+		if(rows == 1) return triangle[1][0];
+
+		vector<vector<int>> dp(rows);
+		dp.push_back(triangle[0]);
+		int levelIndex = 1;
+		for(int i = 1; i < rows; i++) {
+			int levelSize = i + 1;
+			vector<int> levelVec;
+			for(int j = 0; j < levelSize; j++) {
+				if(j == 0) {
+					levelVec.push_back(triangle[levelIndex - 1][0] + triangle[levelIndex][0]);
+				} else {
+					levelVec.push_back(min(triangle[levelIndex - 1][j], triangle[levelIndex - 1][j - 1]) + triangle[levelIndex][j]);
+				}
 			}
+			dp.push_back(levelVec);
+			levelIndex++;
 		}
 
-		string res;
-		while(!st.empty()) {
-			res.push_back(st.top());
-			st.pop();
+		for(int j = 0; j < rows; j++) {
+			res = min(res, dp[rows - 1][j]);
 		}
-		reverse(res.begin(), res.end());
+
 		return res;
 	}
+
 };
 
 void print_vector(const vector<int>& vec) {
@@ -33,7 +44,7 @@ void print_vector(const vector<int>& vec) {
 int main() {
 	Solution sol;
 	vector<int> nums = {2, 7,9,3,1};
-	vector<vector<int>> nums_vec = {{7,0},{4,4},{7,1},{5, 0}, {6, 1}, {5, 2}};
+	vector<vector<int>> nums_vec = {{2},{3,4},{6,5,7},{4,1,8,3}};
 	vector<vector<char>> nums_vec_char = {{'1','1','1','1','0'},
 										  {'1','1','0','1','0'},
 										  {'1','1','0','0','0'},
@@ -52,8 +63,8 @@ int main() {
 	int res_int = 0;
 	bool res_bool = false;
 
-	resStr = sol.removeDuplicates(str_input);
-	cout << resStr << endl;
+	res_int = sol.minimumTotal(nums_vec);
+	cout << res_int << endl;
 	// cout << res_bool << endl;
 	// print_vector_vector(res_vec_vec_int);
 	// print_vector_vector(res_vec_vec_string);
