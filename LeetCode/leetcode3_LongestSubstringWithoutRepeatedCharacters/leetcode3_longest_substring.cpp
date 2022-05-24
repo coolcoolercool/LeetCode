@@ -3,26 +3,25 @@
 class Solution {
 public:
 	int lengthOfLongestSubstring(string s) {
-		if (s.empty() || s.size() == 1) {
-			return s.size();
-		}
+		int size = s.size();
+		if (size < 2) return size;
 
-		set<char> set_element;
-		int left = 0, right = 0, max_length = 1;
+		set<char> innerSet;
+		int left = 0, right = 0, res = 1;
 
 		//  双指针法
-		while (left <= right && right < s.size()) {
-			if (set_element.count(s[right]) == 1) {
-				set_element.erase(s[left]);
+		while (left <= right && right < size) { // 注意这里 left <= right
+			if (innerSet.count(s[right]) != 0) {
+				innerSet.erase(s[left]);
 				left++;
 			} else {
-				set_element.insert(s[right]);
-				max_length = max(right - left + 1, max_length);
+				innerSet.insert(s[right]);
+				res = max(int(innerSet.size()), res);
 				right++;
 			}
 		}
 
-		return max_length;
+		return res;
 	}
 
 	int lengthOfLongestSubstring_1(string s) {

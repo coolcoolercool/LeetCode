@@ -3,36 +3,29 @@ using namespace std;
 
 class Solution {
 public:
-	int minimumTotal(vector<vector<int>>& triangle) {
-		int res = INT_MAX;
-		int rows = triangle.size();
-		if(rows == 1) return triangle[1][0];
+	int trap(vector<int>& height) {
+		int size = height.size();
+		int res = 0;
+		int left = 0, right = size - 1;
+		int curLeftMax = 0, curRightMax = 0;
 
-		vector<vector<int>> dp(rows);
-		dp.push_back(triangle[0]);
-		int levelIndex = 1;
-		for(int i = 1; i < rows; i++) {
-			int levelSize = i + 1;
-			vector<int> levelVec;
-			for(int j = 0; j < levelSize; j++) {
-				if(j == 0) {
-					levelVec.push_back(triangle[levelIndex - 1][0] + triangle[levelIndex][0]);
-				} else {
-					levelVec.push_back(min(triangle[levelIndex - 1][j], triangle[levelIndex - 1][j - 1]) + triangle[levelIndex][j]);
-				}
+		while(left < right) {
+			curLeftMax = max(curLeftMax, height[left]);
+			curRightMax = max(curRightMax, height[right]);
+
+			if(curLeftMax < curRightMax) {
+				res += curLeftMax - height[left];
+				left++;
+			} else {
+				res += curRightMax - height[right];
+				right--;
 			}
-			dp.push_back(levelVec);
-			levelIndex++;
-		}
-
-		for(int j = 0; j < rows; j++) {
-			res = min(res, dp[rows - 1][j]);
 		}
 
 		return res;
 	}
-
 };
+
 
 void print_vector(const vector<int>& vec) {
 	for (int i = 0; i < vec.size(); i++) {
@@ -50,7 +43,7 @@ int main() {
 										  {'1','1','0','0','0'},
 										  {'0','0','0','0','0'}};
 	vector<string> input_vec_string = {"pen", "apple"};
-	string str_input = "abbaca";
+	string str_input = "pwwkew";
 	string str_input1 = "0";
 	int int_input1 = 0;
 	int int_input2 = 4;
@@ -63,7 +56,7 @@ int main() {
 	int res_int = 0;
 	bool res_bool = false;
 
-	res_int = sol.minimumTotal(nums_vec);
+	res_int = sol.lengthOfLongestSubstring(str_input);
 	cout << res_int << endl;
 	// cout << res_bool << endl;
 	// print_vector_vector(res_vec_vec_int);

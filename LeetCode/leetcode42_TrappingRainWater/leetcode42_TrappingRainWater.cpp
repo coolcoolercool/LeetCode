@@ -20,6 +20,9 @@
  (1) 当前列，跟min(leftMax, rightMax) 相等，接不到雨水
  (2) 当前列，比min(leftMax, rightMax) 小，能接到雨水
 
+ 解法概括:
+ 双指针归中，按列求，维护左右短板，求存水量
+
  */
 class Solution {
 public:

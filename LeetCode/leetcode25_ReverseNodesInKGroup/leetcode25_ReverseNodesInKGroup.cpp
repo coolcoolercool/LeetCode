@@ -10,14 +10,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 class Solution {
 public:
 	// 翻转一个子链表，并且返回新的头与尾
 	pair<ListNode*, ListNode*> myReverse(ListNode* head, ListNode* tail) {
 		ListNode* pre = nullptr;
 		ListNode* cur = head;
-		while (pre != tail) {
+		while (pre != tail) {   // 注意这里是 pre != tail，那么终止条件的时候，pre = tail
 			ListNode* next = cur->next;
 			cur->next = pre;
 			pre = cur;
@@ -30,7 +29,7 @@ public:
 		ListNode* dummy = new ListNode(0);
 		dummy->next = head;
 		ListNode* pre = dummy;
-		ListNode* cur = head;
+		ListNode* cur = head;  // 这里是head
 
 		while (cur != nullptr) {
 			ListNode* tail = pre;
@@ -42,7 +41,7 @@ public:
 				}
 			}
 
-			ListNode* nex = tail->next;  // 保存下一个k个链表一组的头结点
+			ListNode* next = tail->next;  // 保存下一个k个链表一组的头结点
 
 			pair<ListNode*, ListNode*> res = myReverse(cur, tail);
 			cur = res.first;  // res {tail, head}
@@ -50,7 +49,7 @@ public:
 
 			// 把子链表重新接回原链表
 			pre->next = cur;
-			tail->next = nex;
+			tail->next = next;
 			pre = tail;
 			cur = tail->next;
 		}

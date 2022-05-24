@@ -17,8 +17,8 @@ class Solution {
 	 */
 public:
 	void moveZeroes(vector<int>& nums) {
-		int n = nums.size(), left = 0, right = 0;
-		while (right < n) {
+		int size = nums.size(), left = 0, right = 0;
+		while (right < size) {
 			if (nums[right] != 0) { // 这里为什么right不++，因为可能left swap的元素为0,
 				swap(nums[left], nums[right]);
 				left++;

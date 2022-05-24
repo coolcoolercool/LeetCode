@@ -1,7 +1,7 @@
 #include "../../include.h"
 
 /**
-https://leetcode17-LetterCombinationsOfAPhoneNumber-cn.com/problems/word-break/solution/dan-ci-chai-fen-by-leetcode17-LetterCombinationsOfAPhoneNumber-solution/
+https://leetcode17_LetterCombinationsOfAPhoneNumber-cn.com/problems/word-break/solution/dan-ci-chai-fen-by-leetcode17_LetterCombinationsOfAPhoneNumber-solution/
 
 https://leetcode.cn/problems/word-break/solution/dong-tai-gui-hua-ji-yi-hua-hui-su-zhu-xing-jie-shi/
 (1)初始化 dp=[False,⋯,False]，长度为 n+1。n 为字符串长度。dp[i] 表示 s 的前 ii 位是否可以用 wordDict 中的单词表示。

@@ -1,5 +1,14 @@
 // Created by rainyzwzhou on 2022/5/2.
 
+/**
+ 题目描述:
+
+
+核心思想:
+https://leetcode.cn/circle/article/qiAgHn/
+
+ **/
+
 #include "../../include.h"
 
 
