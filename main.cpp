@@ -3,27 +3,7 @@ using namespace std;
 
 class Solution {
 public:
-	int trap(vector<int>& height) {
-		int size = height.size();
-		int res = 0;
-		int left = 0, right = size - 1;
-		int curLeftMax = 0, curRightMax = 0;
 
-		while(left < right) {
-			curLeftMax = max(curLeftMax, height[left]);
-			curRightMax = max(curRightMax, height[right]);
-
-			if(curLeftMax < curRightMax) {
-				res += curLeftMax - height[left];
-				left++;
-			} else {
-				res += curRightMax - height[right];
-				right--;
-			}
-		}
-
-		return res;
-	}
 };
 
 
@@ -36,17 +16,20 @@ void print_vector(const vector<int>& vec) {
 
 int main() {
 	Solution sol;
-	vector<int> nums = {2, 7,9,3,1};
-	vector<vector<int>> nums_vec = {{2},{3,4},{6,5,7},{4,1,8,3}};
-	vector<vector<char>> nums_vec_char = {{'1','1','1','1','0'},
-										  {'1','1','0','1','0'},
-										  {'1','1','0','0','0'},
-										  {'0','0','0','0','0'}};
+	vector<int> nums = {-1};
+	vector<vector<int>> nums_vec = {{2},
+	                                {3, 4},
+	                                {6, 5, 7},
+	                                {4, 1, 8, 3}};
+	vector<vector<char>> nums_vec_char = {{'1', '1', '1', '1', '0'},
+	                                      {'1', '1', '0', '1', '0'},
+	                                      {'1', '1', '0', '0', '0'},
+	                                      {'0', '0', '0', '0', '0'}};
 	vector<string> input_vec_string = {"pen", "apple"};
-	string str_input = "pwwkew";
-	string str_input1 = "0";
+	string str_input = "ADOBECODEBANC";
+	string str_input1 = "ABC";
 	int int_input1 = 0;
-	int int_input2 = 4;
+	int int_input2 = 8;
 
 	vector<int> res_vec;
 	vector<string> res_vec_str;
@@ -56,7 +39,7 @@ int main() {
 	int res_int = 0;
 	bool res_bool = false;
 
-	res_int = sol.lengthOfLongestSubstring(str_input);
+	res_int = sol.maximalSquare(nums_vec_char);
 	cout << res_int << endl;
 	// cout << res_bool << endl;
 	// print_vector_vector(res_vec_vec_int);
