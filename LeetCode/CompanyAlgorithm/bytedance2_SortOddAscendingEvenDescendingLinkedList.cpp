@@ -26,22 +26,22 @@ using namespace std;
 class Solution {
 public:
 	ListNode* sortLinkedList(ListNode* head) {
-		if(head == nullptr || head->next == nullptr)  return head;
+		if (head == nullptr || head->next == nullptr) return head;
 
 		// 先把奇数位链表 和 偶数位链表拆开
-		ListNode* oddHead = head;
-		ListNode* evenHead = head->next;
+		ListNode *oddHead = head;
+		ListNode *evenHead = head->next;
 
-		ListNode* oddTail = oddHead;
-		ListNode* evenTail = evenHead;
+		ListNode *oddCur = oddHead;
+		ListNode *evenCur = evenHead;
 
-		while(evenTail != nullptr && evenTail->next != nullptr) { //偶数指针不为空 继续循环
-			oddTail->next = evenTail->next; //奇数指针指向偶数指针的next
-			oddTail = oddTail->next; //移动奇数指针
-			evenTail->next = oddTail->next;
-			evenTail = evenTail->next; ;//移动偶数指针
+		while (evenCur != nullptr && evenCur->next != nullptr) { //偶数指针不为空 继续循环
+			oddCur->next = evenCur->next; //奇数指针指向偶数指针的next
+			oddCur = oddCur->next; //移动奇数指针
+			evenCur->next = oddCur->next;
+			evenCur = evenCur->next;;//移动偶数指针
 		}
-		oddTail->next = nullptr;
+		oddCur->next = nullptr;
 
 		// 然后把偶数位链表逆序
 		evenHead = reverseList(evenHead);

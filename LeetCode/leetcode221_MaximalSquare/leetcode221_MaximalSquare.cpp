@@ -27,7 +27,8 @@ public:
 					if (i == 0 || j == 0) { // 这里算是初始化，但是需要更新maxSide
 						dp[i][j] = 1;
 					} else {
-						dp[i][j] = min(min(dp[i - 1][j], dp[i][j - 1]), dp[i - 1][j - 1]) + 1;
+						dp[i][j] =
+								min(min(dp[i - 1][j], dp[i][j - 1]), dp[i - 1][j - 1]) + 1; // 注意这里是根据dp的数组，不是matrix数组
 					}
 					maxSide = max(maxSide, dp[i][j]);
 				}

@@ -32,21 +32,20 @@ public:
 	}
 
 	//快慢指针分割链表函数
-	ListNode *mergeSort(ListNode *&head) {
-		//如果只有一个结点或者没有结点，直接返回
-		if (head == nullptr || head->next == nullptr) return head;
+	ListNode *mergeSort(ListNode *head) {
+		if (head == nullptr || head->next == nullptr) return head;        //如果只有一个结点或者没有结点，直接返回
 
+		ListNode *pre = nullptr; // 慢指针的前驱
 		ListNode *slow = head; // 慢指针，每次走一步
 		ListNode *fast = head; // 快指针，每次走两步
-		ListNode *pre = nullptr; // 慢指针的前驱
 
-		while (fast != nullptr) {
+		while (fast != nullptr) { // 这种写法，其实pre才是mid节点，slow是mid的下一个节点，注意这里fast的判断是在移动节点后，才判断的，所以会多走一步
 			pre = slow;
 			slow = slow->next;
 			fast = fast->next;
 			if (fast != nullptr) fast = fast->next;
 		}
-		//此时slow指针指向中间结点，用pre指针把链表从中间断开,分为[head,pre],[slow,fast]两段 {left, mid - 1} {mid, right}
+		// 此时slow指针指向中间结点，用pre指针把链表从中间断开,分为[head,pre],[slow,fast]两段 {left, mid} {mid + 1, right}
 		pre->next = nullptr;
 		ListNode *L1 = mergeSort(head); //左边
 		ListNode *L2 = mergeSort(slow); //右边

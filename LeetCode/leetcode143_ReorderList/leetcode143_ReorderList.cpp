@@ -23,16 +23,20 @@ L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
 （3）将原链表的两端合并。
 	因为两链表长度相差不超过 1，因此直接合并即可。
 
+解法概述:
+寻找链表中点 + 链表逆序 + 合并链表
+
 **/
 
 #include "../../include.h"
 #include <bits/stdc++.h>
+
 using namespace std;
 
 
 class Solution {
 public:
-	void reorderList(ListNode* head) {
+	void reorderList(ListNode *head) {
 		if (head == nullptr) return;
 		ListNode* mid = middleNode(head); // 找到中间节点
 		ListNode* left = head;

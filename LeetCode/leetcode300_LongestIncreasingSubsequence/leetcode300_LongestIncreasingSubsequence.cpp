@@ -12,23 +12,21 @@ public:
 	定义 dp[i] 为考虑前 i 个元素，以第 i 个数字结尾的最长上升子序列的长度，注意 nums[i] 必须被选取
     */
 	int lengthOfLIS_1(vector<int>& nums) {
-		if (nums.empty()) {
-			return 0;
-		}
+		if (nums.empty()) return 0;
 
-		int length = nums.size();
-		vector<int> dp(length, 0);
-		int maxLength = 0;
-		for (int index = 0; index < length; index++) {
+		int size = nums.size();
+		vector<int> dp(size, 0);
+		int res = 0;
+		for (int index = 0; index < size; index++) {
 			dp[index] = 1;
 			for (int j = 0; j < index; j++) { // j in [0, mp)
 				if (nums[j] < nums[index]) {
 					dp[index] = max(dp[index], dp[j] + 1); // 计算以 mp 索引结尾，在0 ~ mp - 1，最大连续递增子序列的长度
 				}
 			}
-			maxLength = max(maxLength, dp[index]);
+			res = max(res, dp[index]);
 		}
-		return maxLength;
+		return res;
 	}
 
 	/*
@@ -49,21 +47,21 @@ public:
 			return 0;
 		}
 
-		vector<int> maxLengthSubSequence;
-		maxLengthSubSequence.push_back(nums[0]);
+		vector<int> res;
+		res.push_back(nums[0]);
 		for (int i = 1; i < nums.size(); i++) {
 			// 如果nums[i]大于 dp 数组中所有数字的值，那么把它放在 dp 数组尾部，表示最长递增子序列长度加 1；
-			if (maxLengthSubSequence.back() < nums[i]) {
-				maxLengthSubSequence.push_back(nums[i]);
+			if (res.back() < nums[i]) {
+				res.push_back(nums[i]);
 			} else {
 				// 如果发现这个数字在 dp 数组中比数字 a 大、比数字 b 小，则将 b 更新为此数字，使得之后构成递增序列的可能性增大
 				// lower_bound() 函数用于在指定区域内查找不小于目标值的第一个元素
-				auto iter = std::lower_bound(maxLengthSubSequence.begin(), maxLengthSubSequence.end(), nums[i]);
+				auto iter = std::lower_bound(res.begin(), res.end(), nums[i]); // 注意这里是在res里面搜索
 				*iter = nums[i];
 			}
 		}
 
-		return maxLengthSubSequence.size();
+		return res.size();
 	};
 
 };

@@ -54,7 +54,7 @@ public:
 			for (int j = nums.size() - 1; j >= i + 1; --j) { // 从后往前[i+1,end)找第一个大于a[i+1]的值
 				if (nums[i] < nums[j]) {
 					swap(nums[i], nums[j]); // 交换二者
-					reverse(nums.begin() + i + 1, nums.end()); // 反转[i+1,end)，变成升序
+					reverse(nums.begin() + i + 1, nums.end()); // 反转[i+1,end)，变成升序. 注意这一步别少了
 					break;
 				}
 			}

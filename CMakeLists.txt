@@ -9,7 +9,7 @@ add_executable(leetcode main.cpp
         LeetCode/leetcode1_TwoSum/leetcode1_two_sum.cpp
         LeetCode/leetcode2_AddTwoNumbers/leetcode2_AddTwoNumbers.cpp
         LeetCode/leetcode3_LongestSubstringWithoutRepeatedCharacters/leetcode3_longest_substring.cpp
-        LeetCode/leetcode5_LongestPalindromicSubstring/leetcode5_longest_palindromic_substring.cpp
+        LeetCode/leetcode5_LongestPalindromicSubstring/leetcode5_LongestPalindromicSubstring.cpp
         LeetCode/leetcode11_ContainerWithMostWater/leetcode11_ContainerWithMostWater.cpp
         LeetCode/leetcode15_3Sum/leetcode15_3Sum.cpp
         LeetCode/leetcode17_LetterCombinationsOfAPhoneNumber/leetcode17_letter_combinations_phone_number.cpp
@@ -160,4 +160,6 @@ add_executable(leetcode main.cpp
         LeetCode/leetcode945_MinimumIncremenToMakeArrayUnique/leetcode945_MinimumIncremenToMakeArrayUnique.cpp
         LeetCode/leetcode57_InsertInterval/leetcode57_InsertInterval.cpp
         LeetCode/leetcode474_OnesAndZeroes/leetcode474_OnesAndZeroes.cpp
-        LeetCode/leetcode120_Triangle/leetcode120_Triangle.cpp "LeetCode/leetcode8_StringToInteger(atoi)/leetcode8_StringToInteger(atoi).cpp" SwordToOffer/offer03_RepeatedNumbersInAnArray/offer03.cpp LeetCode/leetcode16_3SumClosest/leetcode16_3SumClosest.cpp)
+        LeetCode/leetcode120_Triangle/leetcode120_Triangle.cpp
+        "LeetCode/leetcode8_StringToInteger(atoi)/leetcode8_StringToInteger(atoi).cpp"
+        SwordToOffer/offer03_RepeatedNumbersInAnArray/offer03.cpp LeetCode/leetcode16_3SumClosest/leetcode16_3SumClosest.cpp)

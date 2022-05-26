@@ -20,7 +20,7 @@ using namespace std;
 
 class Solution {
 private:
-	int maxSum = INT_MIN;
+	int res = INT_MIN;
 
 public:
 	int maxGain(TreeNode* node) {
@@ -31,14 +31,14 @@ public:
 		int rightGain = max(maxGain(node->right), 0);
 
 		// 节点的最大路径和取决于该节点的值与该节点的左右子节点的最大贡献值
-		maxSum = max(maxSum, node->val + leftGain + rightGain); // 更新答案
+		res = max(res, node->val + leftGain + rightGain); // 更新答案
 		// 返回节点的最大贡献值，
 		return node->val + max(leftGain, rightGain); // 核心。这里返回是当前节点加上左右子节点中较大贡献的一个
 	}
 
 	int maxPathSum(TreeNode* root) {
 		maxGain(root);
-		return maxSum;
+		return res;
 	}
 };
 

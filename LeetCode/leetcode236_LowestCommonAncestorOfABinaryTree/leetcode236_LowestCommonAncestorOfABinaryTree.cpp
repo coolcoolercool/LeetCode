@@ -19,17 +19,14 @@
 		p,q 两节点都在 root 的 右子树 中，此时的 right 指向 最近公共祖先节点 ；
 （4）当 left 不为空 ， right 为空 ：与情况 3. 同理；
 
-作者：jyd
-链接：https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/solution/236-er-cha-shu-de-zui-jin-gong-gong-zu-xian-hou-xu/
-来源：力扣（LeetCode）
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
- 
+解法概括:
+后序遍历，相信这个递归函数（光）一定能解出本题。 遇见p，返回p，遇见q返回q。 判断单层循环里left和right，都是null返回null，都不为null节点就是祖先
 **/
 
 #include "../../include.h"
 #include <bits/stdc++.h>
-using namespace std;
 
+using namespace std;
 
 class Solution {
 

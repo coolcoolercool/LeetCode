@@ -18,12 +18,12 @@ public:
 		int size = nums.size();
 
 		for (int& num: nums) {  // 排除负数 和 0 的干扰
-			if (num <= 0) num = size + 1;
+			if (num <= 0) num = size + 1; // 注意这里是 <= 0
 		}
 
 		for (int i = 0; i < size; ++i) { // 将整数在nums对应的索引，的值置为负数
-			int index = abs(nums[i]);
-			if (index <= size) nums[index - 1] = -abs(nums[index - 1]);
+			int index = abs(nums[i]);  // 如果index = 1，则nums[0]对应的数字置为负数
+			if (index <= size) nums[index - 1] = -abs(nums[index - 1]); // 这里是 index <= size
 		}
 
 		for (int i = 0; i < size; ++i) { // 此时，索引对应的值为正整数，表示这个正数缺失，第一个遇到的就是最小缺失的正数

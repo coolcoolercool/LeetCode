@@ -27,7 +27,7 @@ private:
 
 public:
 	TreeNode* myBuildTree(const vector<int> &preorder, const vector<int> &inorder, int preLeft, int preRight, int inLeft, int inRight) {
-		if (preLeft > preRight) return nullptr;
+		if (preLeft > preRight) return nullptr;  // 注意这里的递归终止条件
 
 		int preRootValue = preorder[preLeft]; // 前序遍历中的第一个节点就是根节点
 		int inRoot = mp[preRootValue]; // 在中序遍历中定位根节点
