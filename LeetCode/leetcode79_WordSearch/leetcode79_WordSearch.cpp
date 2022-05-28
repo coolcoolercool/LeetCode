@@ -12,43 +12,44 @@
 // 这种方法和我的基本没有差别，主要是它这个向四个方向遍历手法可以学习下
 class Solution_Method {
 public:
-	bool check(vector<vector<char>>& board, vector<vector<int>>& visited, int curX, int curY, string& str, int curIndex) {
-		if (board[curX][curY] != str[curIndex]) {
-			return false;
-		} else if (curIndex == str.length() - 1) {
-			return true;
+	bool flag = false;
+
+	void
+	help(vector<vector<char>> &board, string &word, int curX, int curY, int strIndex, vector<vector<bool>> &visited) {
+		if (strIndex == word.size() - 1) {
+			flag = true;
+			return;
 		}
 
 		visited[curX][curY] = true;
-		vector<pair<int, int>> directions{{0, 1}, {0, -1}, {1, 0}, {-1, 0}}; // 这种向四个方向遍历的方式，让代码显得更加简洁。 如果这里改成vector<vector<int>> 会超时
-		bool result = false;
-		for (auto dir: directions) {
-			int curNewX = curX + dir.first, curNewY = curY + dir.second;
-			if (curNewX >= 0 && curNewX < board.size() && curNewY >= 0 && curNewY < board[0].size()) {
-				if (!visited[curNewX][curNewY]) {
-					bool flag = check(board, visited, curNewX, curNewY, str, curIndex + 1);
-					if (flag) {
-						result = true;
-						break;
-					}
-				}
+		vector<pair<int, int>> dire = {{1,  0},
+		                               {-1, 0},
+		                               {0,  1},
+		                               {0,  -1}};
+		for (int i = 0; i < dire.size(); i++) {
+			int newX = curX + dire[i].first, newY = curY + dire[i].second;
+			if (newX >= 0 && newX < board.size() && newY >= 0 && newY < board[0].size() && visited[newX][newY] == false
+			    && strIndex + 1 < word.size() && board[newX][newY] == word[strIndex + 1]) {
+				help(board, word, newX, newY, strIndex + 1, visited);
+				if (flag) break;
 			}
 		}
 		visited[curX][curY] = false;
-		return result;
 	}
 
+
 	bool exist(vector<vector<char>>& board, string word) {
-		int row = board.size(), col = board[0].size();
-		vector<vector<int>> visited(row, vector<int>(col));
-		for (int i = 0; i < row; i++) {
-			for (int j = 0; j < col; j++) {
-				bool flag = check(board, visited, i, j, word, 0);
-				if (flag) {
-					return true;
+		int rows = board.size(), cols = board[0].size();
+		vector<vector<bool>> visited(rows, vector<bool>(cols));
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < cols; j++) {
+				if (board[i][j] == word[0]) {
+					help(board, word, i, j, 0, visited);
+					if (flag) return flag;
 				}
 			}
 		}
+
 		return false;
 	}
 };

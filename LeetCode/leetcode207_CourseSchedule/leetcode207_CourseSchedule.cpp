@@ -38,7 +38,7 @@ public:
 		}
 
 		for (int i = 0; i < inDeVec.size(); ++i) { // 将入度为0的节点拿出来，因为可以直接学习
-			if (inDeVec[i] == 0) degQueue.push(i);
+			if (inDeVec[i] == 0) degQueue.push(i);  // 注意这里添加的是 节点，也就是索引，而不是索引对应的value值
 		}
 
 		int count = 0;  // 记录所选的课程数
@@ -56,7 +56,7 @@ public:
 			}
 		}
 
-		return count == numCourses;
+		return count == numCourses; // 这里不能使用 queue是否empty为判断，因为可能一开始就没有入度为0的节点
 	}
 
 

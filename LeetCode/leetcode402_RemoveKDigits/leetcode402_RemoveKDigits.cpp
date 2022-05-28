@@ -26,20 +26,20 @@ using namespace std;
 class Solution {
 public:
 	string removeKdigits(string num, int k) {
-		vector<char> stk;
-		for (auto& digit: num) {
-			while (!stk.empty() && stk.back() > digit && k > 0) { // 只要k>0且当前的c比栈顶的小，则栈顶出栈，k--
-				stk.pop_back();
+		vector<char> vec;  // 这里没有直接使用stack，而是使用了vec，是因为后续需要从头到尾遍历
+		for (auto &digit: num) {
+			while (!vec.empty() && vec.back() > digit && k > 0) { // 只要k>0且当前的c比栈顶的小，则栈顶出栈，k--
+				vec.pop_back();
 				k--;
 			}
-			stk.push_back(digit);
+			vec.push_back(digit);
 		}
 
-		for (; k > 0; --k) stk.pop_back(); // 删除了 mm 个数字且 m<km<k，这种情况下我们需要从序列尾部删除额外的 k-mk−m 个数字
+		for (; k > 0; --k) vec.pop_back(); // 删除了 m 个数字且 m<k，这种情况下我们需要从序列尾部删除额外的 k−m 个数字
 
 		string res = "";
 		bool isBeginZero = true; // 表示开头是否为0
-		for (auto& digit: stk) {
+		for (auto &digit: vec) {
 			if (isBeginZero && digit == '0') continue;
 			isBeginZero = false;
 			res += digit;

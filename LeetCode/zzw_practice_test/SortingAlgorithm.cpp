@@ -150,8 +150,8 @@ public:
 	 }
 
 	 int randomized_partition(vector<int>& nums, int l, int r) {
-	 	int i = rand() % (r - l + 1) + l; // 随机选一个作为我们的主元
-	 	std::swap(nums[l], nums[i]);
+		 int i = rand() % (r - l) + l; // 随机选一个作为我们的主元
+		 std::swap(nums[l], nums[i]);
 	 }
 
 

@@ -20,18 +20,18 @@ class Solution {
 */
 public:
 	int longestValidParentheses(string s) {
-		int length = s.size();
+		int size = s.size();
 		int left = 0, right = 0, res = 0;
-		for(int i = 0; i < length; i++) {
+		for (int i = 0; i < size; i++) {
 			if (s[i] == '(') left++;
 			else right++;
 
-			if (left == right) res = max(res, 2 * right);
+			if (left == right) res = max(res, 2 * left);
 			else if (right > left) left = right = 0;
 		}
 
 		left = right = 0;
-		for (int i = length - 1; i >= 0; i--) {
+		for (int i = size - 1; i >= 0; i--) {
 			if (s[i] == '(') left++;
 			else right++;
 

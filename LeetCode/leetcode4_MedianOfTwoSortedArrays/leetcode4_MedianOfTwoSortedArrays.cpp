@@ -25,7 +25,6 @@ https://leetcode.cn/problems/median-of-two-sorted-arrays/solution/xiang-xi-tong-
  */
 
 class Solution {
-	//
 public:
 	int getKthElem(vector<int> &leftVec, vector<int> &rightVec, int k) {
 		int leftSize = leftVec.size();

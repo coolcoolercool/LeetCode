@@ -9,21 +9,21 @@
 class Solution {
 public:
 	ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-		ListNode* dummy = new ListNode(0);
-		ListNode* curNode = dummy;
+		ListNode *dummy = new ListNode(0);
+		ListNode *cur = dummy;
 		while(list1 != nullptr && list2 != nullptr) {
-			if(list1->val < list2->val) {
-				curNode->next = list1;
+			if (list1->val < list2->val) {
+				cur->next = list1;
 				list1 = list1->next;
 			} else {
-				curNode->next = list2;
+				cur->next = list2;
 				list2 = list2->next;
 			}
-			curNode = curNode->next;
+			cur = cur->next;
 		}
 
-		if (list1 != nullptr) curNode->next = list1;
-		if (list2 != nullptr) curNode->next = list2;
+		if (list1 != nullptr) cur->next = list1;
+		if (list2 != nullptr) cur->next = list2;
 		return dummy->next;
 	}
 

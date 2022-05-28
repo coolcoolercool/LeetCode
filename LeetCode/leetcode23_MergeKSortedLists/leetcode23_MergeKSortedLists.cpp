@@ -28,7 +28,7 @@ public:
 		}
 
 		ListNode *dummy = new ListNode();
-		ListNode *curNode = dummy;
+		ListNode *cur = dummy;
 		while (!pQueue.empty()) {
 			ListNode *temp = pQueue.top();
 			pQueue.pop();
@@ -36,8 +36,8 @@ public:
 				pQueue.push(temp->next);
 			}
 
-			curNode->next = temp;
-			curNode = curNode->next;
+			cur->next = temp;
+			cur = cur->next;
 		}
 		return dummy->next;
 	}

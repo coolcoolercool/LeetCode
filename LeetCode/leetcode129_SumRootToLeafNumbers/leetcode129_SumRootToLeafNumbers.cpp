@@ -25,12 +25,46 @@
 using namespace std;
 
 class Solution {
+	// 层次遍历，queue中存储是节点和节点对应的数字之和，当遇到叶子节点的时候，累计
+public:
+	int sumNumbers(TreeNode *root) {
+		if (root == nullptr) return 0;
+
+		queue<pair<TreeNode *, int>> lQueue;
+		lQueue.push({root, root->val});
+
+		int res = 0;
+		while (!lQueue.empty()) {
+			int size = lQueue.size();
+
+			for (int i = 0; i < size; i++) {
+				TreeNode *cur = lQueue.front().first;
+				int sum = lQueue.front().second;
+				lQueue.pop();
+
+				if (cur->left == nullptr && cur->right == nullptr) {
+					res += sum;
+				} else {
+					if (cur->left != nullptr) {
+						lQueue.push({cur->left, sum * 10 + cur->left->val});
+					}
+					if (cur->right != nullptr) {
+						lQueue.push({cur->right, sum * 10 + cur->right->val});
+					}
+				}
+			}
+		}
+
+		return res;
+	}
+
+
 	// 迭代，层次遍历，新增一个保存从根节点到当前节点的
 public:
-	int sumNumbers_bfs(TreeNode* root) {
-		if(root == nullptr) return 0;
+	int sumNumbers_bfs(TreeNode *root) {
+		if (root == nullptr) return 0;
 		int sum = 0;
-		queue<TreeNode*> nodeQueue;
+		queue<TreeNode *> nodeQueue;
 		queue<int> valQueue;
 		nodeQueue.push(root);
 		valQueue.push(root->val);
@@ -64,13 +98,13 @@ public:
 
 	// 递归写法
 public:
-	int help(TreeNode* root, int preSum) {
-		if(root == nullptr) return 0;
-		preSum = preSum * 10 + root->val;
-		if(root->left == nullptr && root->right == nullptr) {
-			return preSum;
+	int help(TreeNode *root, int sum) {
+		if (root == nullptr) return 0;
+		sum = sum * 10 + root->val;
+		if (root->left == nullptr && root->right == nullptr) {
+			return sum;
 		} else {
-			return help(root->left, preSum) + help(root->right, preSum);
+			return help(root->left, sum) + help(root->right, sum);
 		}
 	}
 

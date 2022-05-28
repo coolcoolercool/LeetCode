@@ -14,7 +14,7 @@ add_executable(leetcode main.cpp
         LeetCode/leetcode15_3Sum/leetcode15_3Sum.cpp
         LeetCode/leetcode17_LetterCombinationsOfAPhoneNumber/leetcode17_letter_combinations_phone_number.cpp
         LeetCode/leetcode19_RemoveNthNodeFromEndOfList/leetcode19_RemoveNthNodeFromEndOfList.cpp
-        LeetCode/leetcode20-ValidParentheses/leetcode20_ValidParentheses.cpp
+        LeetCode/leetcode20_ValidParentheses/leetcode20_ValidParentheses.cpp
         LeetCode/leetcode22_GenerateParentheses/leetcode22_GenerateParentheses.cpp
         LeetCode/leetcode153-FindMinimumInRotatedSortedArray/leetcode153_find_minimum_in_rotated_sorted_array.cpp
         LeetCode/leetcode31_NextPermutation/leetcode31_NextPermutation.cpp
@@ -162,4 +162,6 @@ add_executable(leetcode main.cpp
         LeetCode/leetcode474_OnesAndZeroes/leetcode474_OnesAndZeroes.cpp
         LeetCode/leetcode120_Triangle/leetcode120_Triangle.cpp
         "LeetCode/leetcode8_StringToInteger(atoi)/leetcode8_StringToInteger(atoi).cpp"
-        SwordToOffer/offer03_RepeatedNumbersInAnArray/offer03.cpp LeetCode/leetcode16_3SumClosest/leetcode16_3SumClosest.cpp)
+        SwordToOffer/offer03_RepeatedNumbersInAnArray/offer03.cpp
+        LeetCode/leetcode16_3SumClosest/leetcode16_3SumClosest.cpp
+        LeetCode/leetcode445_AddTwoNumbersII/leetcode445_AddTwoNumbersII.cpp)

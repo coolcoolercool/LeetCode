@@ -12,27 +12,31 @@
 class LeetCode2 {
 public:
 	ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-		ListNode* head = nullptr, *tail = nullptr;
+		if (l1 == nullptr) return l2;
+		if (l2 == nullptr) return l1;
+
+		ListNode *dummy = new ListNode(0);
+		ListNode *cur = dummy;
 		int add = 0;
 
-		while(l1 != nullptr || l2 != nullptr) {
-			int val1 = l1 != nullptr ? l1->val : 0;
-			int val2 = l2 != nullptr ? l2->val : 0;
+		while (l1 != nullptr || l2 != nullptr) {
+			int val1 = l1 == nullptr ? 0 : l1->val;
+			int val2 = l2 == nullptr ? 0 : l2->val;
 
 			int sum = val1 + val2 + add;
-			if(head == nullptr) {
-				head = tail = new ListNode(sum % 10);
-			} else {
-				tail->next = new ListNode(sum % 10);
-				tail = tail->next;
-			}
 			add = sum / 10;
-			if(l1 != nullptr) l1 = l1->next;
-			if(l2 != nullptr) l2 = l2->next;
+			sum = sum % 10;
+
+			cur->next = new ListNode(sum);
+
+			cur = cur->next;
+			if (l1 != nullptr) l1 = l1->next; // 注意这里非空，才会到下一个
+			if (l2 != nullptr) l2 = l2->next;
 		}
 
-		if (add > 0) tail->next = new ListNode(add);
-		return head;
+		if (add != 0) cur->next = new ListNode(add); // 如果add不为0，最后还需要一步
+
+		return dummy->next;
 	}
 };
 

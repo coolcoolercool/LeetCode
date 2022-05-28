@@ -45,7 +45,6 @@ public:
 	vector<string> generateParenthesis(int n) {  // 这里n是括号对数，即生成的括号字符串长度为 2n
 		string oneRes;
 		help(n, 0, 0, oneRes);
-
 		return res;
 	}
 };

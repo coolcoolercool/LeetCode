@@ -33,8 +33,7 @@ public:
 		ListNode *fast = head;
 		ListNode *slow = dummy;
 
-		// 快指针 先走 n 步
-		for (int i = 0; i < n; i++) fast = fast->next;
+		for (int i = 0; i < n; i++) fast = fast->next;        // 快指针 先走 n 步
 
 		// 等 快指针 达到末尾的 next，即为 nullptr 的时候，则 slow到了，倒数第 n-1 节点
 		// 因为 slow = dummy，而dummy到head 还走了一步
@@ -43,8 +42,7 @@ public:
 			slow = slow->next;
 		}
 
-		// 此时slow在第 倒数第n-1个节点上，而slow->next就是要删除的倒数第n个节点
-		slow->next = slow->next->next;
+		slow->next = slow->next->next; // 此时slow在第 倒数第n-1个节点上，而slow->next就是要删除的倒数第n个节点
 		ListNode *ans = dummy->next;
 		delete dummy;
 

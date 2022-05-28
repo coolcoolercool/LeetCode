@@ -2,23 +2,23 @@
 
 class Solution {
 public:
-	unordered_map<char, char> innerMap = {
+	unordered_map<char, char> mp = {
 			{'(', '('},
 			{'}', '{'},
 			{']', '['},
-			};
+	};
 
 	bool isValid(string s) {
-		stack<char> innerStack;
-		for(auto element : s) {
-			if (innerMap.count(element) == 0) { // ( { [
-				innerStack.push(element);
+		stack<char> st;
+		for (auto element : s) {
+			if (mp.count(element) == 0) { // ( { [
+				st.push(element);
 			} else { // ) } ]
-				if (innerStack.empty() || innerStack.top() != innerMap[element]) return false;
-				innerStack.pop();
+				if (st.empty() || st.top() != mp[element]) return false;
+				st.pop();
 			}
 		}
-		return innerStack.empty();  // 注意这个返回条件
+		return st.empty();  // 注意这个返回条件
 	}
 
 public:

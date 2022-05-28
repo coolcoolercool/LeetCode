@@ -18,7 +18,9 @@
 class Solution {
 public:
 	vector<vector<int>> res;
-	void dfs_unique(vector<int>& nums, vector<int>& oneRes, vector<bool>& visited) {
+	vector<int> oneRes;
+
+	void dfs_unique(vector<int> &nums, vector<bool> &visited) {
 		// 递归终止条件
 		if (oneRes.size() == nums.size()) {
 			res.push_back(oneRes);
@@ -27,17 +29,14 @@ public:
 			for (int i = 0; i < nums.size(); i++) {
 				if (visited[i]) continue;
 
-				// 剪枝条件：i > 0 是为了保证 nums[i - 1] 有意义
-				// 写 !used[i - 1] 是因为 nums[i - 1] 在深度优先遍历的过程中刚刚被撤销选择
+				// 剪枝条件：i > 0 是为了保证 nums[i - 1] 有意义。写 !used[i - 1] 是因为 nums[i - 1] 在深度优先遍历的过程中刚刚被撤销选择
 				if (i - 1 >= 0 && nums[i] == nums[i - 1] && visited[i - 1] == false) continue;
 
 				visited[i] = true;
 				oneRes.push_back(nums[i]);
 
-				dfs_unique(nums, oneRes, visited);
-
-				// 回退到前一步
-				visited[i] = false;
+				dfs_unique(nums, visited);
+				visited[i] = false;                // 回退到前一步
 				oneRes.pop_back();
 			}
 		}
@@ -45,11 +44,9 @@ public:
 
 	vector<vector<int>> permuteUnique(vector<int> &nums) {
 		sort(nums.begin(), nums.end());
-		vector<int> oneRes;
 		vector<bool> visited(nums.size());
 
-		dfs_unique(nums, oneRes, visited);
-
+		dfs_unique(nums, visited);
 		return res;
 	}
 };

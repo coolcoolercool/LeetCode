@@ -18,8 +18,8 @@ https://leetcode-cn.com/problems/maximum-subarray/solution/zui-da-zi-xu-he-by-le
 class Solution {
 public:
 	int maxSubArray(vector<int>& nums) {
-		int res = nums[0], pre = 0;
-		for (const auto & element : nums) {
+		int res = nums[0], pre = 0;  // 注意这里 res 初始为 nums[0]
+		for (const auto &element : nums) {
 			pre = max(pre + element, element);
 			res = max(res, pre);
 		}
