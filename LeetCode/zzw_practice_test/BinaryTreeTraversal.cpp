@@ -1,5 +1,19 @@
 #include "../../include.h"
 
+/**
+ 二叉树的前序遍历
+ https://leetcode.cn/problems/binary-tree-preorder-traversal/
+
+ 二叉树的中序遍历
+ https://leetcode.cn/problems/binary-tree-inorder-traversal/
+
+ 二叉树的后序遍历
+ https://leetcode.cn/problems/binary-tree-postorder-traversal/
+
+ 二叉树的层次遍历
+ https://leetcode.cn/problems/binary-tree-level-order-traversal/
+ **/
+
 class Solution {
 public:
 	// 递归部分
@@ -97,8 +111,8 @@ public:
 		TreeNode* node = root;
 		while(!stk.empty() || node != nullptr) {
 			while(node != nullptr) {
-				res.push_back(node->val);
 				stk.push(node);
+				res.push_back(node->val);
 				node = node->left;
 			}
 			node = stk.top(); //如果右子树没有被访问，那么将当前节点压栈，访问右子树
@@ -136,35 +150,37 @@ public:
 	 因此，我们在后序遍历中，引入了一个prev来记录历史访问记录。
 		(1)当访问完一棵子树的时候，我们用prev指向该节点。
 		(2)这样，在回溯到父节点的时候，我们可以依据prev是指向左子节点，还是右子节点，来判断父节点的访问情况。
+
+	  二叉树的非递归难点其实就在于后序遍历，因为后序需要两次路过根节点。遍历的时候需要根据第几次路过来决定是否访问根节点。解决的办法是增加一个r指针，指向上次访问的节点。因为后序遍历LRN最后一定是遍历根节点，所以当r指向root.right的时候那么就是该遍历root的时候了
 	 */
 	vector<int> postorderTraversal(TreeNode *root) {
 		vector<int> res;
-		if (root == nullptr) {
-			return res;
-		}
+		if (root == nullptr) return res;
 
-		stack<TreeNode *> stk;
+		stack<TreeNode *> st;
 		TreeNode *pre = nullptr;
-		while(root != nullptr || !stk.empty()) {
-			while(root != nullptr) {
-				stk.push(root);
+		while (root != nullptr || !st.empty()) {
+			while (root != nullptr) {
+				st.push(root);
 				root = root->left;
 			}
 			// 从栈中弹出的元素，左子树一定是访问完了的
-			root = stk.top();
-			stk.pop();
+			root = st.top();
+			st.pop();
 
 			// 现在需要确定的是是否有右子树，或者右子树是否访问过
 			// 如果没有右子树，或者右子树访问完了，也就是上一个访问的节点是右子节点时
 			// 说明可以访问当前节点
+
+			// 遍历最左子节点的右子树(右子树存在 && 未访问过)
 			if (root->right == nullptr || root->right == pre) {
+				// 后序：填充res在cur->left和cur->right后面
+				// 注意：此时cur的左右子树应均已完成访问
 				res.push_back(root->val);
-				//更新历史访问记录，这样回溯的时候父节点可以由此判断右子树是否访问完成
-				pre = root;
-				root = nullptr;
-			} else {
-				// 如果右子树没有被访问，那么将当前节点压栈，访问右子树
-				stk.push(root);
+				pre = root; // 避免重复访问右子树[记录当前节点便于下一步对比]
+				root = nullptr;  // 避免重复访问左子树[设空节点]
+			} else { // root->right != nullptr && root->right == pre
+				st.push(root);    // 重复压栈以记录当前路径分叉节点
 				root = root->right;
 			}
 		}

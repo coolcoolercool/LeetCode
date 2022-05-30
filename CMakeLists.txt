@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(leetcode main.cpp
         include.h
         LeetCode/leetcode139_WordBreak/leetcode139_WordBreak.cpp
-        LeetCode/leetcode1_TwoSum/leetcode1_two_sum.cpp
+        LeetCode/leetcode1_TwoSum/leetcode1_TwoSum.cpp
         LeetCode/leetcode2_AddTwoNumbers/leetcode2_AddTwoNumbers.cpp
         LeetCode/leetcode3_LongestSubstringWithoutRepeatedCharacters/leetcode3_longest_substring.cpp
         LeetCode/leetcode5_LongestPalindromicSubstring/leetcode5_LongestPalindromicSubstring.cpp
@@ -16,7 +16,7 @@ add_executable(leetcode main.cpp
         LeetCode/leetcode19_RemoveNthNodeFromEndOfList/leetcode19_RemoveNthNodeFromEndOfList.cpp
         LeetCode/leetcode20_ValidParentheses/leetcode20_ValidParentheses.cpp
         LeetCode/leetcode22_GenerateParentheses/leetcode22_GenerateParentheses.cpp
-        LeetCode/leetcode153-FindMinimumInRotatedSortedArray/leetcode153_find_minimum_in_rotated_sorted_array.cpp
+        LeetCode/leetcode153_FindMinimumInRotatedSortedArray/leetcode153_find_minimum_in_rotated_sorted_array.cpp
         LeetCode/leetcode31_NextPermutation/leetcode31_NextPermutation.cpp
         LeetCode/leetcode33_SearchInRotatedSortedArray/leetcode33_SearchInRotatedSortedArray.cpp
         LeetCode/leetcode34_FindFirstAndLastPositionOfElementInSortedArray/leetcode34_FindFirstAndLastPositionOfElementInSortedArray.cpp
@@ -62,7 +62,7 @@ add_executable(leetcode main.cpp
         LeetCode/leetcode448_FindAllNumbersDisappearedInAnArray/leetcode448_FindAllNumbersDisappearedInAnArray.cpp
         "LeetCode/CompanyAlgorithm/Shopee_001_ShopeeTanam.cpp"
         LeetCode/leetcode179-LargestNumber/leetcode179_LargestNumber.cpp
-        LeetCode/leetcode232-ImplementQueueUsingStacks/leetcode232_ImplementQueueUsingStacks.cpp
+        LeetCode/leetcode232_ImplementQueueUsingStacks/leetcode232_ImplementQueueUsingStacks.cpp
         LeetCode/leetcode102_BinaryTreeLevelOrderTraversal/leetcode102_BinaryTreeLevelOrderTraversal.cpp
         LeetCode/CompanyAlgorithm/ShardPtr.cpp
         "SwordToOffer/offer13_Repeated numbers in an array/RepeatedNumbersInAnArray.cpp"
@@ -106,7 +106,6 @@ add_executable(leetcode main.cpp
         LeetCode/leetcode240_SearchA2DMatrixII/leetcode240_SearchA2DMatrixII.cpp
         LeetCode/leetcode279_PerfectSquares/leetcode279_PerfectSquares.cpp
         LeetCode/leetcode322_CoinChange/leetcode322_CoinChange.cpp
-        LeetCode/leetcode1_TwoSum/leetcode1_1_orderTwoSum.cpp
         LeetCode/leetcode283_MoveZeroes/leetcode283_MoveZeroes.cpp
         LeetCode/leetcode287_FindTheDuplicateNumber/leetcode287_FindTheDuplicateNumber.cpp
         LeetCode/leetcode309_BestTimeToBuyAndSellStockWithCooldown/leetcode309_BestTimeToBuyAndSellStockWithCooldown.cpp
@@ -164,4 +163,4 @@ add_executable(leetcode main.cpp
         "LeetCode/leetcode8_StringToInteger(atoi)/leetcode8_StringToInteger(atoi).cpp"
         SwordToOffer/offer03_RepeatedNumbersInAnArray/offer03.cpp
         LeetCode/leetcode16_3SumClosest/leetcode16_3SumClosest.cpp
-        LeetCode/leetcode445_AddTwoNumbersII/leetcode445_AddTwoNumbersII.cpp)
+        LeetCode/leetcode445_AddTwoNumbersII/leetcode445_AddTwoNumbersII.cpp LeetCode/leetcode113_PathSumII/leetcode113_PathSumII.cpp LeetCode/leetcode112_PathSum/leetcode112_PathSum.cpp LeetCode/leetcode958_CheckCompletenessOfABinaryTree/leetcode958_CheckCompletenessOfABinaryTree.cpp LeetCode/leetcode518_CoinChange2/leetcode518_CoinChange2.cpp)

@@ -9,13 +9,11 @@
 
 #include "../../include.h"
 #include <bits/stdc++.h>
-
 using namespace std;
 
 class Solution {
 public:
 	// 根节点 root 到当前节点 p 的路径上除当前节点p以外所有节点的前缀和，在已保存的路径前缀和中查找是否存在前缀和刚好等于当前节点到根节点的前缀和 curr 减去 targetSum
-
 	unordered_map<long long, int> prefix; // key是前缀和, value是大小为key的前缀和出现的次数
 
 	int dfs(TreeNode *root, long long curSum, int targetSum) {
@@ -27,7 +25,6 @@ public:
 			// 当前节点->root节点反推，有且仅有一条路径，如果此前有和为currSum-target,而当前的和又为currSum,两者的差就肯定为target了
 			ret = prefix[curSum - targetSum]; // 可能会有多个，比如，A->B为0，B->C 等于 value，那么A->C 也等于value
 		}
-
 		prefix[curSum]++; // 更新
 
 		// 进入下一层
@@ -36,7 +33,6 @@ public:
 
 		// 回到本层，恢复状态，去除当前节点的前缀数量
 		prefix[curSum]--;
-
 		return ret;
 	}
 

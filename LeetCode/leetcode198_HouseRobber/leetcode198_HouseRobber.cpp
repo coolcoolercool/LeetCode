@@ -83,13 +83,27 @@ public:
 		if (size == 1) {
 			return nums[0];
 		}
-		int first = nums[0], second = max(nums[0], nums[1]);
+		int curNoMax = nums[0], curYesMax = max(nums[0], nums[1]);
 		for (int i = 2; i < size; i++) {
-			int temp = second;
-			second = max(first + nums[i], second);
-			first = temp;
+			int temp = curYesMax;
+			curYesMax = max(curNoMax + nums[i], curYesMax);
+			curNoMax = temp;
 		}
-		return second;
+		return curYesMax;
+	}
+
+	// 自己更喜欢这版
+	int rob_003(vector<int> &nums) {
+		int curYesMax = nums[0], curNoMax = 0;
+		int size = nums.size();
+		for (int i = 1; i < size; i++) {
+			int preNoMax = curNoMax;
+			int preYesMax = curYesMax;
+			curNoMax = max(preYesMax, preNoMax);
+			curYesMax = preNoMax + nums[i];
+		}
+
+		return max(curNoMax, curYesMax);
 	}
 };
 

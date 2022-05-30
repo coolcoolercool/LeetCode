@@ -8,59 +8,47 @@
 
 https://leetcode-cn.com/problems/restore-ip-addresses/solution/dai-ma-sui-xiang-lu-93-fu-yuan-ip-di-zhi-pzjo/
 
+题目的oneRes其实就是在原数字字符串中直接添加 '.'改造出来的
  */
-
 
 class Solution {
 private:
 	vector<string> res;
 
-	/**
-	 *
-	 * @param s
-	 * @param startIndex 搜索的起始位置
-	 * @param pointNum 添加逗号的数量，添加三个ip就切分完成
-	 */
-	void dfs (string& s, int startIndex, int pointNum) {
+	void dfs(string &str, int startIndex, int pointNum) {
 		// 逗点数量为3时，分隔结束。判断第四段子字符串是否合法，如果合法就放进result中
 		if (pointNum == 3) {
-			if (isIllegalIpNum(s, startIndex, s.size() - 1)) {
-				res.push_back(s);
+			if (isIllegalIpNum(str, startIndex, str.size() - 1)) {
+				res.push_back(str);
 			}
 			return;
 		}
 
-		for (int i = startIndex; i < s.size(); i++) {
-			if (isIllegalIpNum(s, startIndex, i)) {
-				s.insert(s.begin() + i + 1, '.');
+		for (int i = startIndex; i < str.size(); i++) {
+			if (isIllegalIpNum(str, startIndex, i)) {
+				str.insert(str.begin() + i + 1, '.');
 				pointNum++;
 
-				dfs(s, i + 2, pointNum);
+				dfs(str, i + 2, pointNum);
 
-				s.erase(s.begin() + i + 1);
+				str.erase(str.begin() + i + 1);
 				pointNum--;
-			} else {
-				break;
 			}
 		}
 	}
+
 	// 判断字符串s在左闭右闭区间[start, end]所组成的数字是否合法
-	bool isIllegalIpNum (const string& s, int start, int end) {
-		if (start > end) {
-			return false;
-		}
-		if (s[start] == '0' && start != end) { // 0开头的数字不合法
-			return false;
-		}
+	bool isIllegalIpNum(const string &str, int start, int end) {
+		if (start > end) return false; // 因为字符串的长度每次会增加一位，但是分割线要后移两位，这就存在越界的问题。正常的递归中，有for作判断，而递归终止的时候，就是靠这个if来做越界的判断
+		if (str[start] == '0' && start != end) return false; // 0开头的数字不合法
+
 		int num = 0;
 		for (int i = start; i <= end; i++) {
-			if (s[i] > '9' || s[i] < '0') { // 遇到非数字字符不合法
-				return false;
-			}
-			num = num * 10 + (s[i] - '0');
-			if (num > 255) { // 如果大于255了不合法
-				return false;
-			}
+			if (str[i] > '9' || str[i] < '0') return false;  // 遇到非数字字符不合法
+
+			num = num * 10 + (str[i] - '0');
+			if (num > 255) return false; // 如果大于255了不合法
+
 		}
 		return true;
 	}
