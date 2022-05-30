@@ -15,9 +15,7 @@ https://leetcode.cn/circle/article/qiAgHn/
 class Solution {
 public:
 	int maxProfit(vector<int> &prices) {
-		if (prices.empty()) {
-			return 0;
-		}
+		if (prices.empty()) return 0;
 
 		int minPrice = prices[0], maxProfit = 0;
 		for(int i = 0; i < prices.size(); i++) {

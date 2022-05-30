@@ -27,7 +27,6 @@ using namespace std;
 class Solution {
 public:
 	unordered_map<int, vector<int>> mp; // 统计邻接关系，指向关系
-
 	bool canFinish(int numCourses, vector<vector<int>> &prerequisites) {
 		vector<int> inDeVec(numCourses, 0); // 节点就是对应索引 0~n-1， 索引对应的值就是节点的入度
 		queue<int> degQueue; // 记录入度为0的节点集合

@@ -13,7 +13,6 @@
 
 在上述构建的过程中，由于根的值不同，因此我们能保证每棵二叉搜索树是唯一的。
 https://leetcode-cn.com/problems/unique-binary-search-trees/solution/bu-tong-de-er-cha-sou-suo-shu-by-leetcode-solution/
-
  */
 
 #include "../../include.h"

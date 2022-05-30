@@ -65,7 +65,7 @@ add_executable(leetcode main.cpp
         LeetCode/leetcode232_ImplementQueueUsingStacks/leetcode232_ImplementQueueUsingStacks.cpp
         LeetCode/leetcode102_BinaryTreeLevelOrderTraversal/leetcode102_BinaryTreeLevelOrderTraversal.cpp
         LeetCode/CompanyAlgorithm/ShardPtr.cpp
-        "SwordToOffer/offer13_Repeated numbers in an array/RepeatedNumbersInAnArray.cpp"
+        "SwordToOffer/offer13_RepeatedNumbersInAnArray/RepeatedNumbersInAnArray.cpp"
         SwordToOffer/AcWing14_FindDuplicateNumbersWithoutModifyingTheArray/AcWing14_FindDuplicateNumbersWithoutModifyingTheArray.cpp
         SwordToOffer/AcWing15_FindIn2DArray/AcWing15_FindIn2DArray.cpp SwordToOffer/AcWing16_ReplaceSpaces/AcWing16_ReplaceSpaces.cpp
         LeetCode/leetcode341_FlattenNestedListIterator/leetcode341-FlattenNestedListIterator.cpp
@@ -163,4 +163,4 @@ add_executable(leetcode main.cpp
         "LeetCode/leetcode8_StringToInteger(atoi)/leetcode8_StringToInteger(atoi).cpp"
         SwordToOffer/offer03_RepeatedNumbersInAnArray/offer03.cpp
         LeetCode/leetcode16_3SumClosest/leetcode16_3SumClosest.cpp
-        LeetCode/leetcode445_AddTwoNumbersII/leetcode445_AddTwoNumbersII.cpp LeetCode/leetcode113_PathSumII/leetcode113_PathSumII.cpp LeetCode/leetcode112_PathSum/leetcode112_PathSum.cpp LeetCode/leetcode958_CheckCompletenessOfABinaryTree/leetcode958_CheckCompletenessOfABinaryTree.cpp LeetCode/leetcode518_CoinChange2/leetcode518_CoinChange2.cpp)
+        LeetCode/leetcode445_AddTwoNumbersII/leetcode445_AddTwoNumbersII.cpp LeetCode/leetcode113_PathSumII/leetcode113_PathSumII.cpp LeetCode/leetcode112_PathSum/leetcode112_PathSum.cpp LeetCode/leetcode958_CheckCompletenessOfABinaryTree/leetcode958_CheckCompletenessOfABinaryTree.cpp LeetCode/leetcode518_CoinChange2/leetcode518_CoinChange2.cpp LeetCode/leetcode88_MergeSortedArray/leetcode88_MergeSortedArray.cpp LeetCode/leetcode14_LongestCommonPrefix/leetcode14_LongestCommonPrefix.cpp LeetCode/leetcode209_MinimumSizeSubarraySum/leetcode209_MinimumSizeSubarraySum.cpp LeetCode/leetcode862_ShortestSubarrayWithSumAtLeastK/leetcode862_ShortestSubarrayWithSumAtLeastK.cpp SwordToOffer/offer22_ThekthNodeFromTheBottomInTheLinkedList/offer22.cpp LeetCode/leetcode43_MultiplyStrings/leetcode43_MultiplyStrings.cpp LeetCode/leetcode114_FlattenBinaryTreeToLinkedList/leetcode114_FlattenBinaryTreeToLinkedList.cpp "LeetCode/leetcode208_ImplementTrie(PrefixTree)/leetcode208_ImplementTrie(PrefixTree).cpp")

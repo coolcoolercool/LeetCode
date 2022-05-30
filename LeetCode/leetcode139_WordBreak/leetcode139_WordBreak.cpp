@@ -15,7 +15,6 @@ https://leetcode.cn/problems/word-break/solution/dong-tai-gui-hua-ji-yi-hua-hui-
 class Solution {
 	// 初始化 dp=[False,⋯,False]，长度为 n+1。n 为字符串长度。dp[i] 表示 s 的前 i 位 就是s[0..i-1] 是否可以用 wordDict中的单词表示。
 	// dp[i] = true 表示s字符串的 0~i-1的子串能够被匹配，只要加上i ~ x也能匹配，则0~x也能匹配
-
 public:
 	bool wordBreak(string& s, vector<string>& wordDict) {
 		int strSize = s.size();
@@ -24,8 +23,9 @@ public:
 		for (int i = 0; i < strSize; i++) {
 			if (!dp[i]) continue;
 			for (auto &word : wordDict)
-				if (word.size() + i <= dp.size() && s.substr(i, word.size()) == word)
+				if (word.size() + i <= dp.size() && s.substr(i, word.size()) == word) {
 					dp[i + word.size()] = true;
+				}
 		}
 		return dp[s.size()];
 	}

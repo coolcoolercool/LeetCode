@@ -12,15 +12,13 @@ using namespace std;
  */
 class MinStack_NoSpace {
 private:
-private:
-	stack<pair<int, int>> innerStack;
-
+	stack<pair<int, int>> innerStack; // {val, minVal}
 public:
 	MinStack_NoSpace() {
 	}
 
 	void push(int val) {
-		if(innerStack.size() == 0) {
+		if (innerStack.size() == 0) {
 			innerStack.push({val, val});
 		} else {
 			innerStack.push({val, min(val, innerStack.top().second)});

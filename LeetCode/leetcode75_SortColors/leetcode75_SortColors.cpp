@@ -15,26 +15,22 @@
 class Solution {
 public:
 	void sortColors(vector<int>& nums) {
-		if (nums.size() < 2) {
-			return;
-		}
+		if (nums.size() < 2) return;
 
 		int left = 0, right = nums.size() - 1;
-
-		for (int cur_index = 0; cur_index <= right; cur_index++) {
-			if (nums[cur_index] == 0) {
-				swap(nums[left], nums[cur_index]);
+		for (int cur = 0; cur <= right; cur++) {
+			if (nums[cur] == 0) {
+				swap(nums[left], nums[cur]);
 				left++;
 			}
 
-			if (nums[cur_index] == 2) {
-				swap(nums[right], nums[cur_index]);
+			if (nums[cur] == 2) {
+				swap(nums[right], nums[cur]);
 				right--;
 
 				// 这一部分很关键，如果curIndex为0或者2，则减一，交由下次处理。直到当前curIndex不为0和2
-				if (nums[cur_index] != 1) cur_index--;
+				if (nums[cur] != 1) cur--;
 			}
-
 			// 如果一开始或者swap后，nums[i] = 1,就直接++了
 		}
 	}

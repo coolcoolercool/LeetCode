@@ -13,7 +13,6 @@
 class Solution_Method {
 public:
 	bool flag = false;
-
 	void
 	help(vector<vector<char>> &board, string &word, int curX, int curY, int strIndex, vector<vector<bool>> &visited) {
 		if (strIndex == word.size() - 1) {
@@ -28,7 +27,8 @@ public:
 		                               {0,  -1}};
 		for (int i = 0; i < dire.size(); i++) {
 			int newX = curX + dire[i].first, newY = curY + dire[i].second;
-			if (newX >= 0 && newX < board.size() && newY >= 0 && newY < board[0].size() && visited[newX][newY] == false
+			if (newX >= 0 && newX < board.size() && newY >= 0 && newY < board[0].size()
+			    && visited[newX][newY] == false
 			    && strIndex + 1 < word.size() && board[newX][newY] == word[strIndex + 1]) {
 				help(board, word, newX, newY, strIndex + 1, visited);
 				if (flag) break;

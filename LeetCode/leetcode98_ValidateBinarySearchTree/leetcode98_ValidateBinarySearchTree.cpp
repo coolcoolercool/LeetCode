@@ -28,12 +28,10 @@ public:
 				stack.push(root);
 				root = root ->left;
 			}
-
 			root = stack.top();
 			stack.pop();
 
-			// 如果中序遍历得到的节点的值，小于等于前一个 predecessor，说明不是二叉搜索树
-			if (pre != nullptr && pre->val >= root->val) {
+			if (pre != nullptr && !(pre->val < root->val)) {            // 如果中序遍历得到的节点的值，小于等于前一个 predecessor，说明不是二叉搜索树
 				return false;
 			} else { // 这里是 pre == nullptr || pre->val < root->val
 				pre = root;

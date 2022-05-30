@@ -179,7 +179,7 @@ public:
 				res.push_back(root->val);
 				pre = root; // 避免重复访问右子树[记录当前节点便于下一步对比]
 				root = nullptr;  // 避免重复访问左子树[设空节点]
-			} else { // root->right != nullptr && root->right == pre
+			} else { // root->right != nullptr && root->right != pre
 				st.push(root);    // 重复压栈以记录当前路径分叉节点
 				root = root->right;
 			}

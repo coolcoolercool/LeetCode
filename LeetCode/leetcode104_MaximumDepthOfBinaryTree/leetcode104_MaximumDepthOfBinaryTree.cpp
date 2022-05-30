@@ -9,8 +9,7 @@ public:
 		if (root == nullptr) return 0;
 		queue<TreeNode*> levelQueue;
 		levelQueue.push(root);
-		int ans = 0;
-
+		int res = 0;
 		while(!levelQueue.empty()) {
 			int levelSize = levelQueue.size();
 
@@ -26,10 +25,10 @@ public:
 					levelQueue.push(tempNode->right);
 				}
 			}
-			ans++;
+			res++;
 		}
 
-		return ans;
+		return res;
 	}
 
 	int maxDepth_recu(TreeNode* root) {

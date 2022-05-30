@@ -5,20 +5,19 @@
  */
 
 #include <bits/stdc++.h>
-#include "../../include.h"
 using namespace std;
 
 class Solution {
 public:
 	int maxProduct(vector<int>& nums) {
-		int curMax = nums[0], curMin = nums[0], ans = nums[0];
+		int curMax = nums[0], curMin = nums[0], res = nums[0];
 		for (int i = 1; i < nums.size(); ++i) {
 			int tempMin = curMax, tempMax = curMin;
-			curMax = max(tempMin * nums[i], max(nums[i], tempMax * nums[i]));
-			curMin = min(tempMax * nums[i], min(nums[i], tempMin * nums[i]));
-			ans = max(curMax, ans);
+			curMax = max(nums[i], max(tempMin * nums[i], tempMax * nums[i])); // 注意这里最大值和最小值的来源，共三个
+			curMin = min(nums[i], min(tempMax * nums[i], tempMin * nums[i]));
+			res = max(curMax, res);
 		}
-		return ans;
+		return res;
 	}
 };
 

@@ -12,28 +12,21 @@ class Solution {
 public:
 	vector<vector<int>> levelOrder(TreeNode* root) {
 		vector<vector<int>> res;
-		if (root == nullptr) {
-			return res;
-		}
+		if (root == nullptr) return res;
 
-		queue<TreeNode*> queueLevel;
-		queueLevel.push(root);
-
-		while(!queueLevel.empty()) {
+		queue<TreeNode *> lQueue;
+		lQueue.push(root);
+		while (!lQueue.empty()) {
 			vector<int> oneLevel;
-			int size = queueLevel.size();  // 这里必须事前取的本层节点的数目，因为queueLevel的size会变化
+			int size = lQueue.size();  // 这里必须事前取的本层节点的数目，因为queueLevel的size会变化
 
-			for(int i = 0; i < size; i++) {
-				TreeNode* node = queueLevel.front();
-				queueLevel.pop();
+			for (int i = 0; i < size; i++) {
+				TreeNode *node = lQueue.front();
+				lQueue.pop();
 				oneLevel.push_back(node->val);
 
-				if (node->left != nullptr) {
-					queueLevel.push(node->left);
-				}
-				if (node->right != nullptr) {
-					queueLevel.push(node->right);
-				}
+				if (node->left != nullptr) lQueue.push(node->left);
+				if (node->right != nullptr) lQueue.push(node->right);
 			}
 			res.push_back(oneLevel);
 		}

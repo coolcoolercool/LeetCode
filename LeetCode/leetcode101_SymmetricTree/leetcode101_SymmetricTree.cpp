@@ -63,7 +63,6 @@ public:
 		if(root == nullptr) {
 			return true;
 		}
-
 		return help(root->left, root->right);
 	}
 };
