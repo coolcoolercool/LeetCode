@@ -8,8 +8,6 @@ L0 → L1 → … → Ln - 1 → Ln
 请将其重新排列后变为：
 L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
 
-
-
 核心思想:
  注意到目标链表即为将原链表的左半端和反转后的右半端合并后的结果。
 
@@ -26,6 +24,17 @@ L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
 解法概述:
 寻找链表中点 + 链表逆序 + 合并链表
 
+这里的寻找中间节点
+注意这里的中间节点
+1->2->(3)->4
+返回的是3
+链表分为 1->2->3 和 4
+
+
+1->2->(3)->4->5
+返回的是3
+链表分为1->2->3 和 4->5
+
 **/
 
 #include "../../include.h"
@@ -33,13 +42,12 @@ L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
 
 using namespace std;
 
-
 class Solution {
 public:
 	void reorderList(ListNode *head) {
 		if (head == nullptr) return;
-		ListNode* mid = middleNode(head); // 找到中间节点
-		ListNode* left = head;
+		ListNode *mid = middleNode(head); // 找到中间节点
+		ListNode *left = head;
 		ListNode* right = mid->next;
 		mid->next = nullptr;  // 将两个链表切断
 
@@ -65,9 +73,9 @@ public:
 
 	ListNode* reverseList(ListNode* head) {
 		ListNode* pre = nullptr;
-		ListNode* cur = head;
+		ListNode *cur = head;
 		while (cur != nullptr) {
-			ListNode* next = cur->next;
+			ListNode *next = cur->next;
 			cur->next = pre;
 			pre = cur;
 			cur = next;
@@ -75,9 +83,12 @@ public:
 		return pre;
 	}
 
-	void mergeList(ListNode* l1, ListNode* l2) {
-		ListNode* nextL1;
-		ListNode* nextL2;
+	// 注意这里可能回误导，其实可能会出现
+	// l1 1->2->3 l2 4
+	// 这种情况
+	void mergeList(ListNode *l1, ListNode *l2) {
+		ListNode *nextL1;
+		ListNode *nextL2;
 		while (l1 != nullptr && l2 != nullptr) {
 			nextL1 = l1->next;
 			nextL2 = l2->next;

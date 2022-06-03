@@ -20,12 +20,12 @@ class Solution {
 	 */
 public:
 	int numSquares(int n) {
-		vector<int> dp(n +1); // 默认初始化值都为0
+		vector<int> dp(n + 1, n + 1); // 默认值设置为 n + 1
+		dp[0] = 0;
 
-		for(int i = 1; i <= n; i++) {
-			dp[i] = i;
-			for(int j = 1; j * j <= i; j++) {
-				dp[i] = min(dp[i], dp[i - j*j] + 1);  // 这一步主要是遍历所有可能到 dp[i] 的 之前一个数值dp[j]，遍历所有的j值，从中找到最小的
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j * j <= i; j++) { // 注意这里是 j*j <= i
+				dp[i] = min(dp[i], dp[i - j * j] + 1);  // 这一步主要是遍历所有可能到 dp[i] 的 之前一个数值dp[j]，遍历所有的j值，从中找到最小的
 			}
 		}
 

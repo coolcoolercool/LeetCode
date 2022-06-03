@@ -45,13 +45,15 @@ public:
 	int circle(int n) {
 		// int mod = 1000000007;
 		int len = 10;
+		int modNum = 1e9 + 7;
+
 		vector<vector<int>> dp(n + 1, vector<int>(len));
 
 		dp[0][0] = 1;
-		for(int i = 1; i <= n; i++) {
-			for(int j = 0; j < len; j++) {
-				dp[i][j] = dp[i - 1][(j - 1 + len) % len] +
-				           dp[i - 1][(j + 1) % len];
+		for (int i = 1; i <= n; i++) {
+			for (int j = 0; j < len; j++) {
+				dp[i][j] = (dp[i - 1][(j - 1 + len) % len] +
+				            dp[i - 1][(j + 1) % len]) % modNum;
 			}
 		}
 

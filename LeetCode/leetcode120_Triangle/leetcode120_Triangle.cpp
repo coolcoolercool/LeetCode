@@ -28,8 +28,11 @@ public:
 		}
 
 		int res = INT_MAX;
-		for(auto element : dp[rows - 1]) res = min(res, element);
+		for (auto element : dp[rows - 1]) res = min(res, element);
 
 		return res;
 	}
+
+	// 扩展打印出来，下来的路径
+	// 思路: 可以遍历dp数组，找到每层的dp值最小的索引
 };

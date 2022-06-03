@@ -20,10 +20,10 @@ using namespace std;
 
 class Solution {
 private:
-	int res = INT_MIN;
+	int res = INT_MIN; // 注意这里是INT_MIN
 
 public:
-	int maxGain(TreeNode* node) {
+	int maxGain(TreeNode *node) {
 		if (node == nullptr) return 0;
 
 		// 递归计算左右子节点的最大贡献值, 只有在最大贡献值大于 0 时，才会选取对应子节点

@@ -5,17 +5,37 @@ using namespace std;
 
 class LeetCode179 {
 public:
-	string largestNumber(vector<int>& nums) {
+	string largestNumber(vector<int> &nums) {
+		vector<string> vec;
+		//将所有的数字转化成字符串
+		for (int v:nums) {
+			vec.push_back(to_string(v));
+		}
+		//从大到小排序字符串数组
+		sort(vec.begin(), vec.end(), [](string s1, string s2) {
+			return s1 + s2 > s2 + s1;
+		});
+		//将各个字符串合并成一个大字符串
+		string res;
+		for (auto s:vec) {
+			res += s;
+		}
+		//当所有的元素都是0时, 此时只返回一个0即可
+		return res[0] == '0' ? "0" : res;
+	}
+
+public:
+	string largestNumber_0(vector<int> &nums) {
 		string resMaxNum;
-		sort(nums.begin(), nums.end(), [](const int& left, const int& right) {
+		sort(nums.begin(), nums.end(), [](const int &left, const int &right) {
 			long numBitsOfLeft = 10, numBitsOfRight = 10;
 
 			// 这里是为了获取 left 和 right对应的位数，因为如果left在左边，那么就要往右边移动 right的位数个位置
 			// eg. left=2, right=10  leftright = left * 10 + right
-			while(numBitsOfLeft <= left) {
+			while (numBitsOfLeft <= left) {
 				numBitsOfLeft *= 10;
 			}
-			while(numBitsOfRight <= right) {
+			while (numBitsOfRight <= right) {
 				numBitsOfRight *= 10;
 			}
 

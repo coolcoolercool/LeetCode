@@ -6,6 +6,13 @@
 如果有两个中间结点，则返回第二个中间结点。
 
 核心思想:
+注意这里的中间节点
+1->2->3->(4)->5->6
+返回的是4
+
+1->2->(3)->4->5
+返回的是3
+
 **/
 
 #include "../../include.h"
@@ -19,12 +26,23 @@ public:
 		dummy->next = head;
 		ListNode* slow = dummy;
 		ListNode* fast = dummy;
-		while(fast != nullptr) {
+		while (fast != nullptr) {
 			fast = fast->next;
 			slow = slow->next;
 
-			if(fast == nullptr) break;
+			if (fast == nullptr) break;
 			fast = fast->next;
+		}
+
+		return slow;
+	}
+
+	ListNode *middleNode_0(ListNode *head) {
+		ListNode *slow = head;
+		ListNode *fast = head;
+		while (fast != nullptr && fast->next != nullptr) {
+			fast = fast->next->next;
+			slow = slow->next;
 		}
 
 		return slow;

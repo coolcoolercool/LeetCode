@@ -23,9 +23,7 @@ class Solution {
 
 public:
 	bool isPalindrome(ListNode* head) {
-		if (head == nullptr) {
-			return true;
-		}
+		if (head == nullptr) return true;
 
 		// 找到前半部分链表的尾节点并反转后半部分链表
 		ListNode* firstHalfEnd = endOfFirstHalf(head);
