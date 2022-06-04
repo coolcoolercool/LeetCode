@@ -382,10 +382,21 @@ public:
 
 int main_lmki98() {
 	Solution_BuleRed bs;
-	vector<int> nums = {3,4,5,1,2};
+	vector<int> nums = {3, 4, 5, 1, 2};
 	int inputN = 5;
 
 	//cout << "findMin_153: " << bs.firstBadVersion_leetcode278(nums) << endl;
 
 	return 0;
 }
+
+/**
+while (l < r) {
+ 	 m = left + (right - left)/2;
+	 if ok(m)
+	 	r = m;
+	 else
+	 	l = m + 1
+ }
+ return l
+**/

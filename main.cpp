@@ -3,10 +3,38 @@ using namespace std;
 
 class Solution {
 public:
-	int findMaxForm(vector<string> &strs, int m, int n) {
+	string help(string &email) {
+		int size = email.size();
+		string realEmail;
+		bool flagAt = false;
+		bool flagPlus = false;
+		for (int i = 0; i < size; i++) {
+			if (email[i] == '.' && !flagAt) {
+				continue;
+			} else if (email[i] == '+' && !flagAt) {
+				flagPlus = true;
+			} else if (email[i] == '@') {
+				flagAt = true;
+				flagPlus = false;
+				realEmail.push_back(email[i]);
+			} else {
+				if (!flagPlus) {
+					realEmail.push_back(email[i]);
+				}
+			}
+		}
 
+		return realEmail;
+	};
+
+	int numUniqueEmails(vector<string> &emails) {
+		unordered_set<string> st;
+		for (auto &email : emails) {
+			st.insert(help(email));
+		}
+
+		return (int) st.size();
 	}
-
 };
 
 void print_vector(const vector<int>& vec) {
@@ -18,7 +46,7 @@ void print_vector(const vector<int>& vec) {
 
 int main() {
 	Solution sol;
-	vector<int> nums = {1, 2, 3, 5, 7};
+	vector<int> nums = {1, 1, 1, 1, 1};
 	vector<vector<int>> nums_vec = {{2},
 	                                {3, 4},
 	                                {6, 5, 7},
@@ -27,9 +55,10 @@ int main() {
 	                                      {'1', '1', '0', '1', '0'},
 	                                      {'1', '1', '0', '0', '0'},
 	                                      {'0', '0', '0', '0', '0'}};
-	vector<string> input_vec_string = {"flower", "flow", "flight"};
-	string str_input = "21474836460";
-	string str_input1 = "ABC";
+	vector<string> input_vec_string = {"test.email+alex@leetcode.com", "test.e.mail+bob.cathy@leetcode.com",
+	                                   "testemail+david@lee.tcode.com"};
+	string str_input = "acdaba";
+	string str_input1 = "badaa";
 	int int_input1 = 13;
 	int int_input2 = 8;
 
@@ -41,7 +70,7 @@ int main() {
 	int res_int = 0;
 	bool res_bool = false;
 
-	res_int = sol.canPartition(nums);
+	res_int = sol.numUniqueEmails(input_vec_string);
 	cout << res_int << endl;
 	// cout << res_bool << endl;
 	// print_vector_vector(res_vec_vec_int);

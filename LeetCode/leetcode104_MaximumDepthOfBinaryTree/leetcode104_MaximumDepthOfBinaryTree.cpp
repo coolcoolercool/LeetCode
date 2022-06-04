@@ -12,17 +12,16 @@ public:
 		int res = 0;
 		while(!levelQueue.empty()) {
 			int levelSize = levelQueue.size();
-
 			for(int i = 0; i < levelSize; i++) {
-				TreeNode* tempNode = levelQueue.front();
+				TreeNode *cur = levelQueue.front();
 				levelQueue.pop();
 
-				if (tempNode->left != nullptr) {
-					levelQueue.push(tempNode->left);
+				if (cur->left != nullptr) {
+					levelQueue.push(cur->left);
 				}
 
-				if(tempNode->right != nullptr) {
-					levelQueue.push(tempNode->right);
+				if (cur->right != nullptr) {
+					levelQueue.push(cur->right);
 				}
 			}
 			res++;
@@ -36,5 +35,6 @@ public:
 
 		return max(maxDepth_recu(root->left), maxDepth_recu(root->right)) + 1;
 	}
+
 
 };

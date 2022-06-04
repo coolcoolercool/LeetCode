@@ -226,9 +226,10 @@ public:
 
 class Solution_HeadSort {
 private:
-	void head_down(int curIndex, int size, vector<int> &nums) {
+	void headDown(int curIndex, int size, vector<int> &nums) {
 		while (curIndex < size) {
 			int left = 2 * curIndex + 1, right = 2 * curIndex + 2;
+
 			int max = curIndex;
 			if (left < size && nums[left] > nums[max])
 				max = left;
@@ -242,8 +243,9 @@ private:
 	}
 
 	void maxHeapity(vector<int> &nums, int size) {
-		for (int i = size / 2 - 1; i >= 0; i--)
-			head_down(i, size, nums);
+		for (int i = size / 2 - 1; i >= 0; i--) {
+			headDown(i, size, nums);
+		}
 	}
 
 public:
@@ -253,7 +255,7 @@ public:
 		swap(nums[0], nums[n - 1]);
 		for (int i = n - 2; i > 0; i--) {
 			n--;
-			head_down(0, n, nums);
+			headDown(0, n, nums);
 			swap(nums[0], nums[i]);
 		}
 		return nums;

@@ -44,6 +44,21 @@ public:
 
 		return dp[n];
 	}
+
+	// 进阶如何打印跳跃的台阶
+	int cnt = 0;
+	vector<string> res;
+
+	void dfs(int n, int cur, string s) {
+		if (cur == n) {
+			cnt++;
+			res.push_back(s);
+			return;
+		}
+		if (cur > n) return;
+		dfs(n, cur + 1, s + to_string(cur + 1));
+		dfs(n, cur + 2, s + to_string(cur + 2));
+	}
 };
 
 int main_9mjnw () {

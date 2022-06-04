@@ -29,13 +29,15 @@ class Solution {
 public:
 	vector<int> searchRange(vector<int> &nums, int target) {
 		vector<int> res = {-1, -1};
+
+		int size = nums.size();
 		// 数组为空，或者target不在有序数组的范围内，均直接返回 -1,-1
-		if (nums.empty() || target < nums[0] || target > nums[nums.size() - 1]) {
+		if (nums.empty() || target < nums[0] || target > nums[size - 1]) {
 			return res;
 		}
 
 		// 找target的左边界
-		int left = 0, right = nums.size() - 1;
+		int left = 0, right = size - 1;
 		while (left < right) {  // 这里 left 不是 <= right，避免了下面的right = mid的死循环
 			int mid = (left + right) / 2;
 
@@ -52,9 +54,9 @@ public:
 		res[0] = right;
 
 		// 找target的右边界
-		left = 0, right = nums.size() - 1;
+		left = 0, right = size - 1;
 		while (left < right) {
-			int mid = (left + right + 1) / 2;
+			int mid = (left + right + 1) / 2; // 这里是差异的重点
 
 			if (nums[mid] <= target) { // 因为要找有边界，每次倾右边，
 				left = mid;

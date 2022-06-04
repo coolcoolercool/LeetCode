@@ -13,8 +13,6 @@ using namespace std;
 
 class Solution {
 public:
-
-public:
 	vector<int> intersection_0(vector<int>& nums1, vector<int>& nums2) {
 		vector<int> hashNum1(1001);
 		vector<int> hashNum2(1001);
@@ -23,14 +21,16 @@ public:
 		}
 
 		vector<int> res;
-		for(int i = 0; i < nums2.size(); i++) {
+		for (int i = 0; i < nums2.size(); i++) {
 			hashNum2[nums2[i]]++;
 		}
 
-		for(int i = 0; i < 1001; i++) {
-			if(hashNum1[i] > 0 && hashNum2[i] > 0) res.push_back(i);
+		for (int i = 0; i < 1001; i++) {
+			if (hashNum1[i] > 0 && hashNum2[i] > 0) res.push_back(i);
 		}
 
 		return res;
 	}
+
+	// 对于已经有序或者未排序的数组，可以先排序，再考虑使用双指针的办法
 };
