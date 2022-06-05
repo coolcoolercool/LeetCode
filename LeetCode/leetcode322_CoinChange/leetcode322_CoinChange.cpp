@@ -32,4 +32,38 @@ public:
 
 		return dp[amount];
 	}
+
+	// 二维DP数组的解法，最优是压缩状态成一维DP数组
+	// dp[i][j] = min(dp[i - 1][j], dp[i][j - coin] + 1);
+	int coinChange_ver0(vector<int> &coins, int amount) {
+		int size = coins.size();
+		if (size < 1) return -1;
+
+		vector<vector<int>> dp(size, vector<int>(amount + 1, amount + 1));
+
+		int coin = coins[0];
+		int cnt = 1;
+		while (coin * cnt <= amount) {
+			dp[0][coin * cnt] = cnt;
+			cnt++;
+		}
+
+		for (int j = 0; j < size; j++) { // 第一列
+			dp[j][0] = 0;
+		}
+
+		for (int i = 1; i < size; i++) {
+			int coin = coins[i];
+			for (int j = 0; j < amount + 1; j++) {
+				dp[i][j] = dp[i - 1][j];
+				if (j - coin >= 0) {
+					dp[i][j] = min(dp[i][j], dp[i][j - coin] + 1);
+				}
+			}
+		}
+
+		if (dp[size - 1][amount] > amount) return -1;
+
+		return dp[size - 1][amount];
+	}
 };

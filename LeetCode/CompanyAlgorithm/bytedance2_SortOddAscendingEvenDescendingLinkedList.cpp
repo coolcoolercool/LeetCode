@@ -6,6 +6,7 @@
 题面解释：例如链表 1->3->2->2->3->1 是奇数位升序偶数位降序的链表，而 1->3->2->2->3->2 则不符合题目要求。
 数据范围：链表中元素个数满足 1≤n≤10000，链表中的元素大小满足 1≤val≤100000
 
+测试用例
 https://www.nowcoder.com/questionTerminal/3a188e9c06ce4844b031713b82784a2a
 
 核心思想:
@@ -41,12 +42,10 @@ public:
 			evenCur->next = oddCur->next;
 			evenCur = evenCur->next;;//移动偶数指针
 		}
-		oddCur->next = nullptr;
+		oddCur->next = nullptr; // 注意需要将奇数节点指针的末尾置空，将奇偶链表分开
 
-		// 然后把偶数位链表逆序
-		evenHead = reverseList(evenHead);
-		// 最后把两个升序的链表归并
-		return mergeList(oddHead, evenHead);
+		evenHead = reverseList(evenHead);  // 然后把偶数位链表逆序
+		return mergeList(oddHead, evenHead); // 最后把两个升序的链表归并
 	}
 
 	// 反转链表

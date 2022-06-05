@@ -46,7 +46,7 @@ public:
 					res += sum;
 				} else {
 					if (cur->left != nullptr) {
-						lQueue.push({cur->left, sum * 10 + cur->left->val});
+						lQueue.push({cur->left, sum * 10 + cur->left->val}); // 注意这里是cur，不是root
 					}
 					if (cur->right != nullptr) {
 						lQueue.push({cur->right, sum * 10 + cur->right->val});

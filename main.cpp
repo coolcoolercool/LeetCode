@@ -1,39 +1,26 @@
 #include "./include.h"
+#include <bits/stdc++.h>
 using namespace std;
 
+
 class Solution {
+private:
+	double x, y;
+	double len;
+
 public:
-	string help(string &email) {
-		int size = email.size();
-		string realEmail;
-		bool flagAt = false;
-		bool flagPlus = false;
-		for (int i = 0; i < size; i++) {
-			if (email[i] == '.' && !flagAt) {
-				continue;
-			} else if (email[i] == '+' && !flagAt) {
-				flagPlus = true;
-			} else if (email[i] == '@') {
-				flagAt = true;
-				flagPlus = false;
-				realEmail.push_back(email[i]);
-			} else {
-				if (!flagPlus) {
-					realEmail.push_back(email[i]);
-				}
-			}
+	Solution(double radius, double x_center, double y_center) {
+		x = x_center;
+		y = y_center;
+		len = radius;
+	}
+
+	vector<double> randPoint() {
+		double curX = 0, curY = 0;
+		while (true) {
+			curX = rand() % len;
+			curY = rand
 		}
-
-		return realEmail;
-	};
-
-	int numUniqueEmails(vector<string> &emails) {
-		unordered_set<string> st;
-		for (auto &email : emails) {
-			st.insert(help(email));
-		}
-
-		return (int) st.size();
 	}
 };
 
@@ -46,7 +33,7 @@ void print_vector(const vector<int>& vec) {
 
 int main() {
 	Solution sol;
-	vector<int> nums = {1, 1, 1, 1, 1};
+	vector<int> nums = {1, 2, 5};
 	vector<vector<int>> nums_vec = {{2},
 	                                {3, 4},
 	                                {6, 5, 7},
@@ -70,7 +57,7 @@ int main() {
 	int res_int = 0;
 	bool res_bool = false;
 
-	res_int = sol.numUniqueEmails(input_vec_string);
+	res_int = sol.coinChange(nums, 11);
 	cout << res_int << endl;
 	// cout << res_bool << endl;
 	// print_vector_vector(res_vec_vec_int);

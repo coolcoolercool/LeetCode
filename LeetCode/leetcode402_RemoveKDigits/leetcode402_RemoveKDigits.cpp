@@ -35,9 +35,9 @@ public:
 			vec.push_back(digit);
 		}
 
-		for (; k > 0; --k) vec.pop_back(); // 删除了 m 个数字且 m<k，这种情况下我们需要从序列尾部删除额外的 k−m 个数字
+		for (; k > 0; --k) vec.pop_back(); // 删除了 m 个数字且 m<k，这种情况下我们需要从序列尾部删除额外的 k−m 个数字. 如果使用while，记得更新k值
 
-		string res = "";
+		string res;
 		bool isBeginZero = true; // 表示开头是否为0
 		for (auto &digit: vec) {
 			if (isBeginZero && digit == '0') continue;

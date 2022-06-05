@@ -18,7 +18,7 @@ public:
 	ListNode *deleteDuplicates(ListNode *head) {
 		if (head == nullptr || head->next == nullptr) return head;
 
-		ListNode *dummy = new ListNode(-101);
+		ListNode *dummy = new ListNode(-101); // 注意这里值，不能去节点值的范围重合，否则会影响
 		dummy->next = head;
 		ListNode *pre = dummy;
 		ListNode *cur = head;

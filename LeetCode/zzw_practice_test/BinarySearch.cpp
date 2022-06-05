@@ -391,10 +391,10 @@ int main_lmki98() {
 }
 
 /**
-while (l < r) {
+while (l < rLen) {
  	 m = left + (right - left)/2;
 	 if ok(m)
-	 	r = m;
+	 	rLen = m;
 	 else
 	 	l = m + 1
  }

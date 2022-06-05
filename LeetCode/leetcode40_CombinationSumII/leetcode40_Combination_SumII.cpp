@@ -24,7 +24,7 @@ public:
 
 		for (int i = startIndex; i < candidates.size() && remain - candidates[i] >= 0; i++) {
 			// 核心步骤: 去重处理
-			if (i > startIndex && candidates[i] == candidates[i - 1]) {
+			if (i > startIndex && candidates[i] == candidates[i - 1]) { // 重点是有重复的数字，{1,1,7} 如果不去重，会有两个{1,7}
 				continue;
 			}
 

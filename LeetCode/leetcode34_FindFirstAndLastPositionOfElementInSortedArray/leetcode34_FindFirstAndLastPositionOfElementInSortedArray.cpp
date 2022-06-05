@@ -10,11 +10,11 @@
  
 思路:
  二分用这个模板就不会出错了。
- 满足条件的都写l = mid或者r = mid，mid首先写成l + r >> 1，
+ 满足条件的都写l = mid或者r = mid，mid首先写成l + rLen >> 1，
 
- 如果满足条件选择的是l = mid，那么mid那里就加个1，写成l + r + 1 >> 1。
+ 如果满足条件选择的是l = mid，那么mid那里就加个1，写成l + rLen + 1 >> 1。
 
- 然后就是else对应的写法l = mid 对应 r = mid - 1，r = mid 对应 l = mid + 1
+ 然后就是else对应的写法l = mid 对应 rLen = mid - 1，rLen = mid 对应 l = mid + 1
 
  用这个
  1、满足条件写 right = mid，else 写left = mid + 1，在取mid的时候，写成 mid = (left + right) / 2，

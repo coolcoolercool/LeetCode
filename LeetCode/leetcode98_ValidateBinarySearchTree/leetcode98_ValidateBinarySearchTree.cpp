@@ -48,7 +48,7 @@ public:
 
 	 递归
 	 */
-	bool helper(TreeNode* root, long long left, long long right) {
+	bool helper(TreeNode *root, long long left, long long right) { // 这里是longlong，用例问题
 		if (root == nullptr) return true;
 
 		if (root->val <= left || root->val >= right) return false;
@@ -57,6 +57,6 @@ public:
 	}
 
 	bool isValidBST_recu(TreeNode* root) {
-		return helper(root, LLONG_MIN, LLONG_MAX);
+		return helper(root, LLONG_MIN, LLONG_MAX); // 注意这里的初始值
 	}
 };

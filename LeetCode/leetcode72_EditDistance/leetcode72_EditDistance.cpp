@@ -14,8 +14,8 @@
 输入: word1 = "horse", word2 = "ros"
 输出: 3
 解释:
-horse -> rorse (将 'h' 替换为 'r')
-rorse -> rose (删除 'r')
+horse -> rorse (将 'h' 替换为 'rLen')
+rorse -> rose (删除 'rLen')
 rose -> ros (删除 'e')
 示例 2:
 
@@ -52,6 +52,7 @@ f（0，k）= f（k，0）= k
 时间复杂度：如果n是word1的长度，则是word2的m，由于两个缩进的循环，它是O（nm）
 **/
 #include <bits/stdc++.h>
+
 using namespace std;
 
 class Solution {
