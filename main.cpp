@@ -2,25 +2,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 class Solution {
-private:
-	double x, y;
-	double len;
-
 public:
-	Solution(double radius, double x_center, double y_center) {
-		x = x_center;
-		y = y_center;
-		len = radius;
-	}
+	int minEatingSpeed(vector<int> &piles, int h) {
 
-	vector<double> randPoint() {
-		double curX = 0, curY = 0;
-		while (true) {
-			curX = rand() % len;
-			curY = rand
-		}
 	}
 };
 
@@ -42,11 +27,10 @@ int main() {
 	                                      {'1', '1', '0', '1', '0'},
 	                                      {'1', '1', '0', '0', '0'},
 	                                      {'0', '0', '0', '0', '0'}};
-	vector<string> input_vec_string = {"test.email+alex@leetcode.com", "test.e.mail+bob.cathy@leetcode.com",
-	                                   "testemail+david@lee.tcode.com"};
+	vector<string> input_vec_string = {};
 	string str_input = "acdaba";
 	string str_input1 = "badaa";
-	int int_input1 = 13;
+	int int_input1 = 5;
 	int int_input2 = 8;
 
 	vector<int> res_vec;
@@ -62,7 +46,7 @@ int main() {
 	// cout << res_bool << endl;
 	// print_vector_vector(res_vec_vec_int);
 	// print_vector_vector(res_vec_vec_string);
-	// print_vector(nums);
+	// print_vector(res_vec_str);
 
 	return 0;
 }

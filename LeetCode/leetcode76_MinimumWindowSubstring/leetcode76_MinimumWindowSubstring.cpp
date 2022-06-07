@@ -35,7 +35,7 @@ public:
 		int cnt = 0, left = 0, right = 0;
 		for (; right < s.size(); right++) {
 			sHash[s[right]]++;
-			if (sHash[s[right]] <= tHash[s[right]]) cnt++; // 表示满足条件的字符数，cnt=t.size(),表示s的子串已经包含t
+			if (sHash[s[right]] <= tHash[s[right]]) cnt++; // 表示满足条件的字符数，mp=t.size(),表示s的子串已经包含t
 
 			while (sHash[s[left]] > tHash[s[left]]) { // 如果出现不满足的情况，移除left，则left++，
 				sHash[s[left]]--;

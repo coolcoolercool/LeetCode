@@ -12,7 +12,6 @@ class Solution {
 	 * dp[i] 表示，金额为i兑换，最少需要的硬币数
 	 * dp[i] 取决于硬币值的前一个位置， 比如硬币值为coins[j]
 	 * dp[i] = min(coins[i], dp[i])
-	 *
 	 */
 public:
 	int coinChange(vector<int>& coins, int amount) {
@@ -39,31 +38,29 @@ public:
 		int size = coins.size();
 		if (size < 1) return -1;
 
-		vector<vector<int>> dp(size, vector<int>(amount + 1, amount + 1));
+		vector<vector<int>> dp(size, vector<int>(amount + 1, amount + 1));  // dp[i][j] 金额为j，兑换硬币最少的硬币数
 
 		int coin = coins[0];
 		int cnt = 1;
-		while (coin * cnt <= amount) {
-			dp[0][coin * cnt] = cnt;
-			cnt++;
+		for (int i = 0; i < size; i++) { // 第一列，金额为0，则硬币数为0
+			dp[i][0] = 0;
 		}
 
-		for (int j = 0; j < size; j++) { // 第一列
-			dp[j][0] = 0;
+		for (int j = 1; j * coins[0] < amount + 1; j++) { // 只取第一个硬币
+			dp[0][j * coins[0]] = j;
 		}
 
 		for (int i = 1; i < size; i++) {
 			int coin = coins[i];
 			for (int j = 0; j < amount + 1; j++) {
-				dp[i][j] = dp[i - 1][j];
+				dp[i][j] = dp[i - 1][j]; // 不取i硬币
 				if (j - coin >= 0) {
 					dp[i][j] = min(dp[i][j], dp[i][j - coin] + 1);
 				}
 			}
 		}
 
-		if (dp[size - 1][amount] > amount) return -1;
-
+		if (dp[size - 1][amount] > amount) return -1; // 无法兑换的情况
 		return dp[size - 1][amount];
 	}
 };

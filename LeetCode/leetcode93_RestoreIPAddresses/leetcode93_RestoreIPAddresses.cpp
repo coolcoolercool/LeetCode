@@ -1,6 +1,5 @@
 #include "../../include.h"
 
-
 /*
  题目: 给定一个只包含数字的字符串，用以表示一个 IP 地址，返回所有可能从 s 获得的 有效 IP 地址 。你可以按任何顺序返回答案。
 有效 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 '.' 分隔
@@ -15,30 +14,30 @@ class Solution {
 private:
 	vector<string> res;
 
-	void dfs(string &str, int startIndex, int pointNum) {
+	void dfs(string &str, int index, int pointNum) {
 		// 逗点数量为3时，分隔结束。判断第四段子字符串是否合法，如果合法就放进result中
 		if (pointNum == 3) {
-			if (isIllegalIpNum(str, startIndex, str.size() - 1)) {
+			if (isValid(str, index, str.size() - 1)) {
 				res.push_back(str);
 			}
 			return;
 		}
 
-		for (int i = startIndex; i < str.size(); i++) {
-			if (isIllegalIpNum(str, startIndex, i)) {
-				str.insert(str.begin() + i + 1, '.');
+		for (int i = index; i < str.size(); i++) {
+			if (isValid(str, index, i)) {
+				str.insert(str.begin() + i + 1, '.'); // 注意这里的索引位置，i+1
 				pointNum++;
 
-				dfs(str, i + 2, pointNum);
+				dfs(str, i + 2, pointNum);  // 注意这里是 i+2，因为新增了一个字符 '.'
 
-				str.erase(str.begin() + i + 1);
+				str.erase(str.begin() + i + 1); // 注意这里的索引位置，i+1
 				pointNum--;
 			}
 		}
 	}
 
 	// 判断字符串s在左闭右闭区间[start, end]所组成的数字是否合法
-	bool isIllegalIpNum(const string &str, int start, int end) {
+	bool isValid(const string &str, int start, int end) {
 		if (start > end) return false; // 因为字符串的长度每次会增加一位，但是分割线要后移两位，这就存在越界的问题。正常的递归中，有for作判断，而递归终止的时候，就是靠这个if来做越界的判断
 		if (str[start] == '0' && start != end) return false; // 0开头的数字不合法
 

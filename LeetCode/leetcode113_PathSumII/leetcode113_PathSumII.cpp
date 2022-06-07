@@ -43,10 +43,10 @@ public:
 		}
 	}
 
-	vector<vector<int>> pathSum_0(TreeNode *root, int targetSum) {
+	vector<vector<int>> pathSum(TreeNode *root, int targetSum) {
 		if (root == nullptr) return res;
 
-		oneRes.push_back(root->val);
+		oneRes.push_back(root->val);  // 注意这里需要预先处理头节点的部分
 		help(root, targetSum - root->val);
 
 		return res;
@@ -55,6 +55,7 @@ public:
 
 class Solution_ver1 {
 	// 这种写法，不需要预先处理头结点
+	// 就是将remain的更新放在下一个节点的地方
 public:
 	vector<vector<int>> res;
 	vector<int> oneRes;

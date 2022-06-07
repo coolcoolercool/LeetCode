@@ -51,7 +51,7 @@ public:
 		}
 	}
 
-	vector<vector<int>> permute(vector<int>& nums) {
+	vector<vector<int>> permute(vector<int> &nums) {
 		vector<bool> used(nums.size());
 		dfs(nums, used);
 		return res;
@@ -59,9 +59,51 @@ public:
 };
 
 
+class Solution_ziji {
+	// 扩展，出现过子集全排列
+	// 题目描述: 给定一个数组，给定一个数字count，表示从数组中挑选count个元素，组成一个子集排列。返回所有的这种排列
+public:
+	vector<string> res;
+	string oneRes;
+
+	void help(vector<char> &nums, int k, vector<bool> &visited) {
+		if (oneRes.size() == k) {
+			res.push_back(oneRes);
+		} else {
+			for (int i = 0; i < nums.size(); i++) {
+				if (oneRes.size() < k) {
+					if (visited[i] == true) continue;
+					oneRes.push_back(nums[i]);
+					visited[i] = true;
+
+					help(nums, k, visited);
+
+					visited[i] = false;
+					oneRes.pop_back();
+				}
+			}
+		}
+	}
+
+	vector<string> test(int k, int b) {
+		vector<char> nums;
+		int c = 'a';
+		for (; b > 0; b--) {
+			nums.push_back(c);
+			c++;
+		}
+
+		vector<bool> visited(nums.size());
+		help(nums, k, visited);
+
+		return res;
+	}
+
+};
+
 int main_9nmh5() {
 	Solution sol;
-	vector<int> nums = {1,2,3};
+	vector<int> nums = {1, 2, 3};
 	vector<vector<int>> res = sol.permute(nums);
 
 	for (auto vec_element : res) {

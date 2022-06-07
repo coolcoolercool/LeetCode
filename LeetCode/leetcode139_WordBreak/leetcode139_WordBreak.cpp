@@ -17,17 +17,19 @@ class Solution {
 	// dp[i] = true 表示s字符串的 0~i-1的子串能够被匹配，只要加上i ~ x也能匹配，则0~x也能匹配
 public:
 	bool wordBreak(string& s, vector<string>& wordDict) {
-		int strSize = s.size();
-		vector<bool> dp(strSize + 1, false);
+		int size = s.size();
+		vector<bool> dp(size + 1, false);
 		dp[0] = true;
-		for (int i = 0; i < strSize; i++) {
+		for (int i = 0; i < size; i++) {
 			if (!dp[i]) continue;
-			for (auto &word : wordDict)
-				if (word.size() + i <= dp.size() && s.substr(i, word.size()) == word) {
-					dp[i + word.size()] = true;
+			for (string &word : wordDict) {
+				int index = i + word.size();
+				if (index < dp.size() && s.substr(i, word.size()) == word) { // 注意这里index <= dp.size()
+					dp[index] = true;
 				}
+			}
 		}
-		return dp[s.size()];
+		return dp[size];
 	}
 
 

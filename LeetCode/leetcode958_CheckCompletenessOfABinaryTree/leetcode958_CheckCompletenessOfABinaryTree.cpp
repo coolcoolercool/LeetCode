@@ -17,7 +17,7 @@ class Solution {
 public:
 	bool isCompleteTree(TreeNode *root) {
 		queue<TreeNode *> lQueue;
-		bool reachNull = false; // 记录是否已经遍历到null节点结果
+		bool isEnd = false; // 记录是否已经遍历到null节点结果
 
 		lQueue.push(root);
 		while (!lQueue.empty()) {
@@ -25,11 +25,11 @@ public:
 			lQueue.pop();
 
 			if (cur == nullptr) { // 第一次 发现空结点了
-				reachNull = true;
+				isEnd = true;
 				continue;
 			}
 
-			if (reachNull == true) return false; // 发现null结点后出现非空结点，发现不完全了
+			if (isEnd == true) return false; // 发现null结点后出现非空结点，发现不完全了
 
 			lQueue.push(cur->left);
 			lQueue.push(cur->right);
@@ -38,6 +38,7 @@ public:
 	}
 
 	// 使用的节点数和最后一个节点的索引是否对应
+	// 会有用例不通过
 	bool isCompleteTree_0(TreeNode *root) {
 		queue<pair<TreeNode *, long long>> lQueue;
 		lQueue.push({root, 1});
@@ -47,12 +48,11 @@ public:
 		while (!lQueue.empty()) {
 			int size = lQueue.size();
 			nodeCnt += size;
-
+			res = max(lQueue.back().second, res);
 			for (int i = 0; i < size; i++) {
 				TreeNode *cur = lQueue.front().first;
 				long long val = lQueue.front().second;
 				lQueue.pop();
-				res = max(val, res);
 
 				if (cur->left != nullptr) {
 					lQueue.push({cur->left, 2 * val});
