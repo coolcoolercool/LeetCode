@@ -7,12 +7,11 @@
 **/
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
 class Solution {
 public:
-	int minEatingSpeed(vector<int> &piles, int H) { // H是总小时数目
+	int minEatingSpeed(vector<int> &piles, int h) { // H是总小时数目
 		int maxVal = 1;
 		for (int pile : piles) {
 			maxVal = max(maxVal, pile);
@@ -24,7 +23,7 @@ public:
 		while (left < right) {
 			int mid = left + (right - left) / 2;
 
-			if (calculateSum(piles, mid) > H) {
+			if (calculateSum(piles, mid) > h) {
 				// 耗时太多，说明速度太慢了，下一轮搜索区间是 [mid + 1..right]
 				left = mid + 1;
 			} else {

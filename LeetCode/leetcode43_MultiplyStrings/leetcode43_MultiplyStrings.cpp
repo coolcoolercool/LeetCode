@@ -8,7 +8,6 @@ https://leetcode.cn/problems/multiply-strings/solution/zi-fu-chuan-xiang-cheng-b
 **/
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
 class Solution {

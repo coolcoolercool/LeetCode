@@ -25,20 +25,18 @@ public:
 	bool isPalindrome(ListNode* head) {
 		if (head == nullptr) return true;
 
-		// 找到前半部分链表的尾节点并反转后半部分链表
-		ListNode* firstHalfEnd = endOfFirstHalf(head);
-		ListNode* secondHalfStart = reverseList(firstHalfEnd->next);
+		// 找到中间节点的pre节点，再将后半部分的链表反转
+		ListNode *firstHalfEnd = findPreMid(head);
+		ListNode *secondHalfStart = reverseList(firstHalfEnd->next);
 
 		// 判断是否回文
-		ListNode* p1 = head;
-		ListNode* p2 = secondHalfStart;
+		ListNode *left = head;
+		ListNode *right = secondHalfStart;
 		bool result = true;
-		while (result && p2 != nullptr) {
-			if (p1->val != p2->val) {
-				result = false;
-			}
-			p1 = p1->next;
-			p2 = p2->next;
+		while (right != nullptr) {
+			if (left->val != right->val) result = false;
+			left = left->next;
+			right = right->next;
 		}
 
 		// 还原链表并返回结果
@@ -46,11 +44,12 @@ public:
 		return result;
 	}
 
+	// 普通的反转链表
 	ListNode* reverseList(ListNode* head) {
 		ListNode* pre = nullptr;
-		ListNode* cur = head;
+		ListNode *cur = head;
 		while (cur != nullptr) {
-			ListNode* nextTemp = cur->next;
+			ListNode *nextTemp = cur->next;
 			cur->next = pre;
 			pre = cur;
 			cur = nextTemp;
@@ -58,19 +57,28 @@ public:
 		return pre;
 	}
 
-	ListNode* endOfFirstHalf(ListNode* head) {
-		ListNode* fast = head;
-		ListNode* slow = head;
-		while (fast->next != nullptr && fast->next->next != nullptr) {
-			fast = fast->next->next;
+	// 找到mid节点的前一个节点
+	ListNode *findPreMid(ListNode *head) {
+		ListNode *dummy = new ListNode(0);
+		dummy->next = head;
+		ListNode *slow = dummy;
+		ListNode *fast = dummy;
+
+		while (fast != nullptr) {
+			fast = fast->next;
+			if (fast == nullptr) continue;
+
+			fast = fast->next;
 			slow = slow->next;
 		}
+
 		return slow;
 	}
 
 public:
-	bool isPalindrome_0(ListNode* head) {
-		if(head == nullptr || head->next == nullptr) return true;
+	// 使用数组存储遍历链表节点的值，然后检查数组是否是回文的
+	bool isPalindrome_0(ListNode *head) {
+		if (head == nullptr || head->next == nullptr) return true;
 
 		vector<int> arr;
 		while(head != nullptr) {

@@ -26,8 +26,8 @@ public:
 		int maxBook = 0;
 		mp[start]++;
 		mp[end]--;
-		for (auto &[_, freq] : mp) {
-			maxBook += freq;
+		for (auto &item: mp) {
+			maxBook += item.second;
 			res = max(maxBook, res);
 		}
 		return res;

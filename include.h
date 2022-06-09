@@ -45,6 +45,7 @@ struct Node {
 	Node(int x, Node *left, Node *right) : val(x), left(left), right(right) {};
 };
 
+
 class NestedInteger {
 public:
 	// Return true if this NestedInteger holds a single integer, rather than a nested list.

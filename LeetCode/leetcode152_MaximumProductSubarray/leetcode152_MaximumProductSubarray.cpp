@@ -9,7 +9,7 @@ using namespace std;
 
 class Solution {
 public:
-	int maxProduct(vector<int>& nums) {
+	int maxProduct(vector<int> &nums) {
 		int curMax = nums[0], curMin = nums[0], res = nums[0];
 		for (int i = 1; i < nums.size(); ++i) {
 			int tempMin = curMax, tempMax = curMin;
@@ -17,6 +17,23 @@ public:
 			curMin = min(nums[i], min(tempMax * nums[i], tempMin * nums[i]));
 			res = max(curMax, res);
 		}
+		return res;
+	}
+
+	int maxProduct_ver0(vector<int> &nums) {
+		int size = nums.size();
+		vector<vector<int>> dp(size, vector<int>(2)); // dp[i][0]遍历到第i个物品得最大乘积，dp[i][1]遍历第i个物品的最小乘积
+		dp[0][0] = nums[0];
+		dp[0][1] = nums[0];
+
+		int res = nums[0];
+		for (int i = 1; i < size; i++) {
+			dp[i][0] = max(nums[i], max(dp[i - 1][0] * nums[i], dp[i - 1][1] * nums[i]));
+			dp[i][1] = min(nums[i], min(dp[i - 1][0] * nums[i], dp[i - 1][1] * nums[i]));
+
+			res = max(dp[i][0], res);
+		}
+
 		return res;
 	}
 };
