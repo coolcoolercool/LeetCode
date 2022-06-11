@@ -16,7 +16,7 @@ void print_vector(const vector<int>& vec) {
 	cout << endl;
 }
 
-int main() {
+int main_okmjng() {
 	Solution sol;
 	vector<int> nums = {2, 3, 1, 2, 4, 3};
 	vector<vector<int>> nums_vec = {{2},
@@ -41,7 +41,7 @@ int main() {
 	int res_int = 0;
 	bool res_bool = false;
 
-	resStr = sol.thirtysixAdd(str_input, str_input1);
+	// resStr = sol.thirtysixAdd(str_input, str_input1);
 	cout << resStr << endl;
 	// cout << res_bool << endl;
 	// print_vector_vector(res_vec_vec_int);
