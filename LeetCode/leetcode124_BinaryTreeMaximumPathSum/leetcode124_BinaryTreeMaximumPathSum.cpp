@@ -8,10 +8,10 @@
 
 
 核心思想:
- 核心在于计算结果的时候要计算左右子树，递归返回的时候只能返回较大的一边
- 因为最大路径只有一条，要不左边要不右边
+核心在于计算结果的时候要计算左右子树，递归返回的时候只能返回较大的一边
+因为最大路径只有一条，要不左边要不右边
 
- https://leetcode.cn/problems/binary-tree-maximum-oneRes-sum/solution/shou-hui-tu-jie-hen-you-ya-de-yi-dao-dfsti-by-hyj8/
+https://leetcode.cn/problems/binary-tree-maximum-oneRes-sum/solution/shou-hui-tu-jie-hen-you-ya-de-yi-dao-dfsti-by-hyj8/
 **/
 
 #include "../../include.h"
@@ -20,7 +20,7 @@ using namespace std;
 
 class Solution {
 private:
-	int res = INT_MIN; // 注意这里是INT_MIN
+	int res = INT_MIN; // 注意这里是INT_MIN，因为题目要求最少要一个节点，对于根节点的值为负数，且只有一个根节点二叉树的情况
 
 public:
 	int maxGain(TreeNode *node) {

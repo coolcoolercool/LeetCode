@@ -28,13 +28,14 @@ public:
 			innerMap[key] = innerList.begin();
 			return key_value.second;
 		}
+
 		return -1;
 	}
 
 	void put(int key, int value) {
 		if (innerMap.find(key) == innerMap.end()) {
 			if (list_size == capacity) {
-				innerMap.erase(innerList.back().first);
+				innerMap.erase(innerList.back().first); // 注意这里的先后顺序，必须是map先释放
 				innerList.pop_back();
 				list_size--;
 			}

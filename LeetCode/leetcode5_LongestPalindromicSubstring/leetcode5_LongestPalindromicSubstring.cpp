@@ -16,8 +16,7 @@ class Solution {
 public:
 	int help(string s, int left, int right) {
 		while (left >= 0 && right < s.size() && s[left] == s[right]) {
-			left--;
-			right++;
+			left--, right++;
 		}
 
 		return right - left - 1;  //  回文串的长度是right-left+1-2 = right - left - 1
@@ -42,6 +41,31 @@ public:
 		}
 
 		return s.substr(left, right - left + 1);
+	}
+
+	// 这里只记录了 curRight和 resLen，没有left的记录
+	string longestPalindrome_easy_write(string s) {
+		int size = s.size();
+		if (size < 2) return s;
+
+		int curRight = 0, res = 1;
+		for(int i = 0; i < size; i++) {
+			int len = help(s, i, i);
+			if (len > res) {
+				curRight = i + len / 2;
+				res = len;
+			}
+		}
+
+		for(int i = 0; i < size; i++) {
+			int len = help(s, i, i + 1);
+			if (len > res) {
+				curRight = i + len / 2;
+				res = len;
+			}
+		}
+
+		return s.substr(curRight - res + 1, res);
 	}
 
 	// https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-nehzil-y1tc/

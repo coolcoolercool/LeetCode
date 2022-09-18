@@ -12,7 +12,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
+int main_code16() {
 	int money, count;
 	cin >> money >> count;
 	// 由于价格是10的整数倍，处理一下以降低空间/时间复杂度

@@ -117,7 +117,8 @@ public:
 	  * @return
 	  */
 	 int partition(int arr[], int left, int right) {
-	 	int pivot = left;
+	 	int pivot = rand() % (right - left) + left;
+		swap(arr, arr[pivot], arr[left]);
 	 	int index = pivot + 1;
 
 	 	for (int i = index; i <= right; i++) {

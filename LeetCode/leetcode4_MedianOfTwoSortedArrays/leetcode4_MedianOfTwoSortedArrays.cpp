@@ -33,12 +33,12 @@ public:
 		int curLeft = 0, curRight = 0;
 		int newIndexLeft = 0, newIndexRight = 0;
 		while (true) {
-			// 递归终止条件，主要是不断的缩减k的值，最后可能会是三种情况，left数组到头了，right数组到头了，k到1无法再缩减
+			// 递归终止条件，主要是不断缩减k的值，最后可能会是三种情况，left数组到头了，right数组到头了，k到1无法再缩减
 			if (curLeft == leftSize) return rightVec[curRight + k - 1];
 			if (curRight == rightSize) return leftVec[curLeft + k - 1];
 			if (k == 1) return min(leftVec[curLeft], rightVec[curRight]);
 
-			newIndexLeft = min(curLeft + k / 2 - 1, leftSize - 1);
+			newIndexLeft = min(curLeft + k / 2 - 1, leftSize - 1); // 注意是 size - 1
 			newIndexRight = min(curRight + k / 2 - 1, rightSize - 1);
 
 			if (leftVec[newIndexLeft] <= rightVec[newIndexRight]) {

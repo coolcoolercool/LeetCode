@@ -45,7 +45,7 @@ public:
 		//step2.反转整个字符串
 		reverse_ziji(s, 0, s.size() - 1);
 		//step3.依次反转每个单词
-		int start = 0;
+		int start = 0; // 记录每个单词的起始位置
 		for (int i = 0; i < s.size(); i++) {
 			if (s[i] == ' ') {
 				reverse_ziji(s, start, i - 1);
@@ -58,6 +58,56 @@ public:
 		return s;
 	}
 
+	// 移除首尾部分多余的空格
+	void removeSpace(string& s) {
+		int left = 0, right = s.size() - 1;
+		while(left <= right && s[left] == ' ') {
+			left++;
+		}
+		while(left <= right && s[right] == ' ') {
+			right--;
+		}
+		s = s.substr(left, right - left + 1);
+	}
+
+	// 移除字符串之间的空格
+	void removeMidSpace(string& s) {
+		int left = 0, right = 0, size = s.size();
+		while(right < size) {
+			if(right > 0 && s[right] == ' ' && s[right - 1] == ' ') {
+				right++;
+			} else {
+				s[left] = s[right];
+				left++, right++;
+			}
+		}
+		s.resize(left);
+	}
+
+	void help(string& s, int left, int right) {
+		while(left >= 0 && right < s.size() && right > left) {
+			swap(s[left], s[right]);
+			left++, right--;
+		}
+	}
+
+	string reverseWords_easy_write(string s) {
+		removeSpace(s);
+		removeMidSpace(s);
+		help(s, 0, s.size() - 1);
+		int start = 0;
+		for (int i = 0; i < s.size(); i++) {
+			if(s[i] == ' ') {
+				help(s, start, i - 1);
+				start = i + 1;
+			}
+			if (i == s.size() - 1) {
+				help(s, start, i);
+			}
+		}
+
+		return s;
+	}
 
 
 	/*
@@ -104,7 +154,7 @@ public:
 		由于双端队列支持从队列头部插入的方法，因此我们可以沿着字符串一个一个单词处理，然后将单词压入队列的头部，再将队列转成字符串即可。
 
 	    复杂度分析
-		时间复杂度：O(n)，其中 nn 为输入字符串的长度。
+		时间复杂度：O(n)，其中 n 为输入字符串的长度。
 		空间复杂度：O(n)，双端队列存储单词需要 O(n) 的空间。
 	 */
 	string reverseWords_2(string s) {
