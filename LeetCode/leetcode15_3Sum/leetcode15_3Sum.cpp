@@ -26,6 +26,7 @@
  * 使用有序数列的好处是，在枚举和移动指针时值相等的数可以跳过，省去去重部分
  * <p>
  * 时间复杂度为O(n^2)
+ * 面试字节考过
  */
 
 class Solution {
@@ -46,15 +47,15 @@ public:
 
 			left = i + 1, right = nums.size() - 1;
 			while (left < right) {
-				if (nums[i] + nums[left] + nums[right] == 0) {
+				int sum = nums[i] + nums[left] + nums[right];
+				if (sum == 0) {
 					res.push_back(vector<int>{nums[i], nums[left], nums[right]});
-					left++;
-					right--;
+					left++,	right--;
 
 					// 避免 重复的情况，注意这里的 left - 1 和 right + 1
 					while (left < right && nums[left] == nums[left - 1] ) left++;
 					while (left < right && nums[right] == nums[right + 1]) right--;
-				} else if (nums[i] + nums[left] + nums[right] > 0) {
+				} else if (sum > 0) {
 					right--;
 				} else {  // nums[i] + nums[left] + nums[right] < 0
 					left++;

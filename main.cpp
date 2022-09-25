@@ -4,35 +4,28 @@ using namespace std;
 
 class Solution {
 public:
-	int partition(vector<int>& nums, int left, int right) {
-		int pivot = rand() % (right - left) + left;
-		swap(nums[left], nums[pivot]);
-		int index = pivot + 1;
+	// leetcode 19
 
-		for(int i = index; i <= right; i++) {
-			if (nums[i] < nums[pivot]) {
-				swap(nums[i], nums[index]);
-				index++;
-			}
+	ListNode* removeNthFromEnd(ListNode* head, int n) {
+		ListNode* dummy = new ListNode(-1);
+		dummy->next = head;
+
+		ListNode* fast = dummy;
+		ListNode* slow = dummy;
+		ListNode* pre = nullptr;
+
+		while(n > 0) {
+			fast = fast->next;
+			n--;
 		}
-		swap(nums[index - 1], nums[pivot]);
-		return index - 1;
-	}
 
-	void quickSortHelp(vector<int>& nums, int left, int right) {
-		if (left < right) {
-			int partitionIndex = partition(nums, left, right);
-			quickSortHelp(nums, left, partitionIndex - 1);
-			quickSortHelp(nums, partitionIndex + 1, right);
+		while(fast != nullptr) {
+			fast = fast->next;
+			pre = slow;
+			slow = slow->next;
 		}
-	}
-
-	void quickSort(vector<int>& nums) {
-		quickSortHelp(nums, 0, nums.size() - 1);
-	}
-
-	int findKthLargest(vector<int>& nums, int k) {
-
+		pre->next = pre->next->next;
+		return dummy->next;
 	}
 };
 
@@ -45,7 +38,7 @@ void print_vector(const vector<int>& vec) {
 
 int main() {
 	Solution sol;
-	vector<int> nums = {1, 3, 1, 5, 4};
+	vector<int> nums = {-2,0,1,1,2};
 	vector<vector<int>> nums_vec = {{1,2,3},
 	                                {4,5,6},
 	                                {7,8,9},
@@ -68,10 +61,10 @@ int main() {
 	int res_int = 0;
 	bool res_bool = false;
 
-	resStr = sol.reverseWords(str_input);
+	res_vec_vec_int = sol.threeSum(nums);
 	cout << resStr << endl;
 	// cout << res_bool << endl;
-	// print_vector_vector(res_vec_vec_int);
+	print_vector_vector(res_vec_vec_int);
 	// print_vector_vector(res_vec_vec_string);
 	// print_vector(res_vec);
 

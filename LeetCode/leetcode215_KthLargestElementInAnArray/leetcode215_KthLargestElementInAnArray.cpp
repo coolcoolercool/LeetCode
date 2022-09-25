@@ -6,6 +6,9 @@
 class Solution {
 public:
 	int partition(vector<int>& arr, int left, int right) {
+		int temp = rand() % (right - left + 1) + left;
+		swap(arr[temp], arr[left]);
+
 		int pivot = left;
 		int index = pivot + 1;
 
@@ -20,7 +23,7 @@ public:
 	}
 
 	int quickSort(vector<int>& arr, int left, int right, int kth) {
-		// 注意这里没有使用 while(left < right )
+		// 注意这里没有使用 if(left < right )
 		int partitionIndex = partition(arr, left, right);
 		if (partitionIndex == kth) {
 			return arr[partitionIndex];

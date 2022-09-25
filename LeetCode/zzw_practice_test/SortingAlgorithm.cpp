@@ -117,10 +117,11 @@ public:
 	  * @return
 	  */
 	 int partition(int arr[], int left, int right) {
-	 	int pivot = rand() % (right - left) + left;
-		swap(arr, arr[pivot], arr[left]);
-	 	int index = pivot + 1;
+	 	int temp = rand() % (right - left + 1) + left;
+		swap(arr, arr[temp], arr[left]);
 
+		int pivot = left;
+		int index = left + 1;
 	 	for (int i = index; i <= right; i++) {
 	 		if (arr[i] < arr[pivot]) {  // 将小于pivot的索引的值，放在index的左边，最后将index - 1和pivot交换，则pivot左边都是小于pivot的值
 	 			swap(arr, i, index);

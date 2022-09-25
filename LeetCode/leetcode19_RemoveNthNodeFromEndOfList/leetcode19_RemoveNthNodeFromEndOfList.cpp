@@ -51,4 +51,26 @@ public:
 
 		return ans;
 	}
+
+	ListNode *removeNthFromEnd_EasyWrite(ListNode *head, int n) {
+		ListNode* dummy = new ListNode(-1);
+		dummy->next = head;
+
+		ListNode* fast = dummy;
+		ListNode* slow = dummy;
+		ListNode* pre = nullptr;
+
+		while(n > 0) {
+			fast = fast->next;
+			n--;
+		}
+
+		while(fast != nullptr) {
+			fast = fast->next;
+			pre = slow;
+			slow = slow->next;
+		}
+		pre->next = pre->next->next;
+		return dummy->next;
+	}
 };
