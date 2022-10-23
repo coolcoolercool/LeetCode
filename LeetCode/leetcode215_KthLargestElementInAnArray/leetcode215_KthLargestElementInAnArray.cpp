@@ -1,5 +1,5 @@
 /**
- * 给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
+ * 给定整数数组 nums 和 整数 k，请返回数组中第 k 个最大的元素。
  */
 #include "../../include.h"
 
@@ -11,7 +11,6 @@ public:
 
 		int pivot = left;
 		int index = pivot + 1;
-
 		for (int i = index; i <= right; i++) {
 			if (arr[i] < arr[pivot]) {
 				swap(arr[i], arr[index]);

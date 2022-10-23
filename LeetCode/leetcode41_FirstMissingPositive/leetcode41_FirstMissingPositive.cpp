@@ -14,7 +14,25 @@ using namespace std;
 
 class Solution {
 public:
+	// 将元素交换到对应的位置
 	int firstMissingPositive(vector<int>& nums) {
+		int size = nums.size();
+		for(int i = 0; i < size; i++) {
+			while(nums[i] > 0 && nums[i] <= size && nums[i] != nums[nums[i] - 1]) {
+				swap(nums[i], nums[nums[i] - 1]);
+			}
+		}
+
+		for(int i = 0; i < size; i++) {
+			if (nums[i] != i + 1) {
+				return i + 1;
+			}
+		}
+		return size + 1;
+	}
+
+	// 使用正负号作为标记
+	int firstMissingPositive_solution1(vector<int>& nums) {
 		int size = nums.size();
 
 		for (int& num: nums) {  // 排除负数 和 0 的干扰

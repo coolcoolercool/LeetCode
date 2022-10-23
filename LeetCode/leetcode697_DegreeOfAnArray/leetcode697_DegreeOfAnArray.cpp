@@ -14,9 +14,9 @@ using namespace std;
 class Solution {
 public:
 	int findShortestSubArray(vector<int>& nums) {
-		unordered_map<int, vector<int>> mp;
-		int maxCount = 0;
-		for(int i = 0; i < nums.size(); i++) {
+		unordered_map<int, vector<int>> mp;  // num, num出现过所有的索引位置
+		int maxCount = 0, size = nums.size();
+		for(int i = 0; i < size; i++) {
 			mp[nums[i]].push_back(i);
 			maxCount = max(maxCount, (int)mp[nums[i]].size());
 		}
@@ -26,7 +26,7 @@ public:
 		int res = nums.size() + 1;
 		for(auto& elem : mp) {
 			if(elem.second.size() == maxCount) {
-				res = min(res, elem.second[maxCount - 1] - elem.second[0] + 1);
+				res = min(res, elem.second[maxCount - 1] - elem.second[0] + 1); // 出现次数最多的数字，第一次出现和最后一次出现的索引
 			}
 		}
 

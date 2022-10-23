@@ -4,28 +4,20 @@ using namespace std;
 
 class Solution {
 public:
-	// leetcode 19
+	int hIndex(vector<int>& citations) {
+		int size = citations.size();
+		sort(citations.begin(), citations.end());
 
-	ListNode* removeNthFromEnd(ListNode* head, int n) {
-		ListNode* dummy = new ListNode(-1);
-		dummy->next = head;
-
-		ListNode* fast = dummy;
-		ListNode* slow = dummy;
-		ListNode* pre = nullptr;
-
-		while(n > 0) {
-			fast = fast->next;
-			n--;
+		int res = 0;
+		for(int i = 0; i < size; i++) {
+			if (i > 0 && citations[i] == citations[i - 1]) {
+				continue;
+			}
+			int hIndex = min(citations[i], size - i);
+			res = max(hIndex, res);
 		}
 
-		while(fast != nullptr) {
-			fast = fast->next;
-			pre = slow;
-			slow = slow->next;
-		}
-		pre->next = pre->next->next;
-		return dummy->next;
+		return res;
 	}
 };
 
@@ -38,7 +30,7 @@ void print_vector(const vector<int>& vec) {
 
 int main() {
 	Solution sol;
-	vector<int> nums = {-2,0,1,1,2};
+	vector<int> nums = {3,0,6,1,5};
 	vector<vector<int>> nums_vec = {{1,2,3},
 	                                {4,5,6},
 	                                {7,8,9},
@@ -61,12 +53,12 @@ int main() {
 	int res_int = 0;
 	bool res_bool = false;
 
-	res_vec_vec_int = sol.threeSum(nums);
-	cout << resStr << endl;
+	res_int = sol.hIndex(nums);
+	 cout << res_int << endl;
 	// cout << res_bool << endl;
-	print_vector_vector(res_vec_vec_int);
+	// print_vector_vector(res_vec_vec_int);
 	// print_vector_vector(res_vec_vec_string);
-	// print_vector(res_vec);
+	print_vector(res_vec);
 
 	return 0;
 }
