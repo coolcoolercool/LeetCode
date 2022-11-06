@@ -163,4 +163,74 @@ add_executable(leetcode main.cpp
         "LeetCode/leetcode8_StringToInteger(atoi)/leetcode8_StringToInteger(atoi).cpp"
         SwordToOffer/offer03_RepeatedNumbersInAnArray/offer03.cpp
         LeetCode/leetcode16_3SumClosest/leetcode16_3SumClosest.cpp
-        LeetCode/leetcode445_AddTwoNumbersII/leetcode445_AddTwoNumbersII.cpp LeetCode/leetcode113_PathSumII/leetcode113_PathSumII.cpp LeetCode/leetcode112_PathSum/leetcode112_PathSum.cpp LeetCode/leetcode958_CheckCompletenessOfABinaryTree/leetcode958_CheckCompletenessOfABinaryTree.cpp LeetCode/leetcode518_CoinChange2/leetcode518_CoinChange2.cpp LeetCode/leetcode88_MergeSortedArray/leetcode88_MergeSortedArray.cpp LeetCode/leetcode14_LongestCommonPrefix/leetcode14_LongestCommonPrefix.cpp LeetCode/leetcode209_MinimumSizeSubarraySum/leetcode209_MinimumSizeSubarraySum.cpp LeetCode/leetcode862_ShortestSubarrayWithSumAtLeastK/leetcode862_ShortestSubarrayWithSumAtLeastK.cpp SwordToOffer/offer22_ThekthNodeFromTheBottomInTheLinkedList/offer22.cpp LeetCode/leetcode43_MultiplyStrings/leetcode43_MultiplyStrings.cpp LeetCode/leetcode114_FlattenBinaryTreeToLinkedList/leetcode114_FlattenBinaryTreeToLinkedList.cpp "LeetCode/leetcode208_ImplementTrie(PrefixTree)/leetcode208_ImplementTrie(PrefixTree).cpp" LeetCode/leetcode239_SlidingWindowMaximum/leetcode239_SlidingWindowMaximum.cpp SwordToOffer/offer33_PostOrderTraversalSequenceOfBinarySearchTree/offer33.cpp SwordToOffer/offer54_TheKthLargestNodeOfTheBinarySearchTree/offer54.cpp LeetCode/leetcode473_MatchsticksToSquare/leetcode473_MatchsticksToSquare.cpp LeetCode/leetcode7_ReverseInteger/leetcode7_ReverseInteger.cpp LeetCode/leetcode494_TargetSum/leetcode494_TargetSum.cpp LeetCode/zzw_practice_test/test.cpp LeetCode/leetcode1143_LongestCommonSubsequence/leetcode1143_LongestCommonSubsequence.cpp LeetCode/leetcode9_PalindromeNumber/leetcode9_PalindromeNumber.cpp LeetCode/leetcode829_ConsecutiveNumbersSum/leetcode829_ConsecutiveNumbersSum.cpp LeetCode/leetcode110_BalancedBinaryTree/leetcode110_BalancedBinaryTree.cpp LeetCode/leetcode929_UniqueEmailAddresses/leetcode929_UniqueEmailAddresses.cpp LeetCode/leetcode216_CombinationSumIII/leetcode216_CombinationSumIII.cpp LeetCode/leetcode377_CombinationSumIV/leetcode377_CombinationSumIV.cpp LeetCode/leetcode726_NumberOfAtoms/leetcode726_NumberOfAtoms.cpp LeetCode/leetcode478_GenerateRandomPointInACircle/leetcode478_GenerateRandomPointInACircle.cpp LeetCode/leetcode732_MyCalendarIII/leetcode732_MyCalendarIII.cpp LeetCode/leetcode593_ValidSquare/leetcode593_ValidSquare.cpp LeetCode/leetcode875_KokoEatingBananas/leetcode875_KokoEatingBananas.cpp LeetCode/leetcode1037_ValidBoomerang/leetcode1037_ValidBoomerang.cpp LeetCode/leetcode138_CopyListWithRandomPointer/leetcode138_CopyListWithRandomPointer.cpp LeetCode/CompanyAlgorithm/bytedance3_FindTheTargetSubstringInStr.cpp LeetCode/leetcode497_RandomPointInNonOverlappingRectangles/leetcode497_RandomPointInNonOverlappingRectangles.cpp LeetCode/CompanyAlgorithm/bytedance4_36BaseAddition.cpp LeetCode/leetcode297_SerializeAndDeserializeBinaryTree/leetcode297_SerializeAndDeserializeBinaryTree.cpp LeetCode/leetcode498_DiagonalTraverse/leetcode498_DiagonalTraverse.cpp HuaWeiCode/code5.cpp HuaWeiCode/code6.cpp HuaWeiCode/code7.cpp HuaWeiCode/code8.cpp HuaWeiCode/code9.cpp HuaWeiCode/code10.cpp HuaWeiCode/code11.cpp HuaWeiCode/code12.cpp HuaWeiCode/code13.cpp HuaWeiCode/code14.cpp HuaWeiCode/code15.cpp HuaWeiCode/code16.cpp LeetCode/leetcode926_FlipStringToMonotoneIncreasing/leetcode926_FlipStringToMonotoneIncreasing.cpp HuaWeiCode/code17.cpp HuaWeiCode/code18.cpp LeetCode/leetcode890_FindAndReplacePattern/leetcode890_FindAndReplacePattern.cpp LeetCode/leetcode205_IsomorphicStrings/leetcode205_IsomorphicStrings.cpp LeetCode/leetcode290_WordPattern/leetcode290_WordPattern.cpp LeetCode/leetcode1051_HeightChecker/leetcode1051_HeightChecker.cpp LeetCode/leetcode450_DeleteNodeInABST/leetcode450_DeleteNodeInABST.cpp LeetCode/leetcode554_BrickWall/leetcode554_BrickWall.cpp LeetCode/leetcode227_BasicCalculatorII/leetcode227_BasicCalculatorII.cpp LeetCode/leetcode532_KdiffPairsInAnArray/leetcode532_KdiffPairsInAnArray.cpp "LeetCode/leetcode6_ ZigzagConversion/leetcode6_ ZigzagConversion.cpp" LeetCode/leetcode912_SortAnArray/leetcode912_SortAnArray.cpp LeetCode/leetcode485_MaxConsecutiveOnes/leetcode485_MaxConsecutiveOnes.cpp LeetCode/leetcode495_TeemoAttacking/leetcode495_TeemoAttacking.cpp LeetCode/leetcode414_ThirdMaximumNumber/leetcode414_ThirdMaximumNumber.cpp LeetCode/leetcode628_MaximumProductOfThreeNumbers/leetcode628_MaximumProductOfThreeNumbers.cpp LeetCode/leetcode645_SetMismatch/leetcode645_SetMismatch.cpp LeetCode/leetcode442_FindAllDuplicatesInAnArray/leetcode442_FindAllDuplicatesInAnArray.cpp LeetCode/leetcode274_HIndex/leetcode274_HIndex.cpp LeetCode/leetcode453_MinimumMovesToEqualArrayElements/leetcode453_MinimumMovesToEqualArrayElements.cpp)
+        LeetCode/leetcode445_AddTwoNumbersII/leetcode445_AddTwoNumbersII.cpp
+        LeetCode/leetcode113_PathSumII/leetcode113_PathSumII.cpp
+        LeetCode/leetcode112_PathSum/leetcode112_PathSum.cpp
+        LeetCode/leetcode958_CheckCompletenessOfABinaryTree/leetcode958_CheckCompletenessOfABinaryTree.cpp
+        LeetCode/leetcode518_CoinChange2/leetcode518_CoinChange2.cpp
+        LeetCode/leetcode88_MergeSortedArray/leetcode88_MergeSortedArray.cpp
+        LeetCode/leetcode14_LongestCommonPrefix/leetcode14_LongestCommonPrefix.cpp
+        LeetCode/leetcode209_MinimumSizeSubarraySum/leetcode209_MinimumSizeSubarraySum.cpp
+        LeetCode/leetcode862_ShortestSubarrayWithSumAtLeastK/leetcode862_ShortestSubarrayWithSumAtLeastK.cpp
+        SwordToOffer/offer22_ThekthNodeFromTheBottomInTheLinkedList/offer22.cpp
+        LeetCode/leetcode43_MultiplyStrings/leetcode43_MultiplyStrings.cpp
+        LeetCode/leetcode114_FlattenBinaryTreeToLinkedList/leetcode114_FlattenBinaryTreeToLinkedList.cpp
+        "LeetCode/leetcode208_ImplementTrie(PrefixTree)/leetcode208_ImplementTrie(PrefixTree).cpp"
+        LeetCode/leetcode239_SlidingWindowMaximum/leetcode239_SlidingWindowMaximum.cpp
+        SwordToOffer/offer33_PostOrderTraversalSequenceOfBinarySearchTree/offer33.cpp
+        SwordToOffer/offer54_TheKthLargestNodeOfTheBinarySearchTree/offer54.cpp
+        LeetCode/leetcode473_MatchsticksToSquare/leetcode473_MatchsticksToSquare.cpp
+        LeetCode/leetcode7_ReverseInteger/leetcode7_ReverseInteger.cpp
+        LeetCode/leetcode494_TargetSum/leetcode494_TargetSum.cpp
+        LeetCode/zzw_practice_test/test.cpp
+        LeetCode/leetcode1143_LongestCommonSubsequence/leetcode1143_LongestCommonSubsequence.cpp
+        LeetCode/leetcode9_PalindromeNumber/leetcode9_PalindromeNumber.cpp
+        LeetCode/leetcode829_ConsecutiveNumbersSum/leetcode829_ConsecutiveNumbersSum.cpp
+        LeetCode/leetcode110_BalancedBinaryTree/leetcode110_BalancedBinaryTree.cpp
+        LeetCode/leetcode929_UniqueEmailAddresses/leetcode929_UniqueEmailAddresses.cpp
+        LeetCode/leetcode216_CombinationSumIII/leetcode216_CombinationSumIII.cpp
+        LeetCode/leetcode377_CombinationSumIV/leetcode377_CombinationSumIV.cpp
+        LeetCode/leetcode726_NumberOfAtoms/leetcode726_NumberOfAtoms.cpp
+        LeetCode/leetcode478_GenerateRandomPointInACircle/leetcode478_GenerateRandomPointInACircle.cpp
+        LeetCode/leetcode732_MyCalendarIII/leetcode732_MyCalendarIII.cpp
+        LeetCode/leetcode593_ValidSquare/leetcode593_ValidSquare.cpp
+        LeetCode/leetcode875_KokoEatingBananas/leetcode875_KokoEatingBananas.cpp
+        LeetCode/leetcode1037_ValidBoomerang/leetcode1037_ValidBoomerang.cpp
+        LeetCode/leetcode138_CopyListWithRandomPointer/leetcode138_CopyListWithRandomPointer.cpp
+        LeetCode/CompanyAlgorithm/bytedance3_FindTheTargetSubstringInStr.cpp
+        LeetCode/leetcode497_RandomPointInNonOverlappingRectangles/leetcode497_RandomPointInNonOverlappingRectangles.cpp
+        LeetCode/CompanyAlgorithm/bytedance4_36BaseAddition.cpp
+        LeetCode/leetcode297_SerializeAndDeserializeBinaryTree/leetcode297_SerializeAndDeserializeBinaryTree.cpp
+        LeetCode/leetcode498_DiagonalTraverse/leetcode498_DiagonalTraverse.cpp
+        HuaWeiCode/code5.cpp
+        HuaWeiCode/code6.cpp
+        HuaWeiCode/code7.cpp
+        HuaWeiCode/code8.cpp
+        HuaWeiCode/code9.cpp
+        HuaWeiCode/code10.cpp
+        HuaWeiCode/code11.cpp
+        HuaWeiCode/code12.cpp
+        HuaWeiCode/code13.cpp
+        HuaWeiCode/code14.cpp
+        HuaWeiCode/code15.cpp
+        HuaWeiCode/code16.cpp
+        LeetCode/leetcode926_FlipStringToMonotoneIncreasing/leetcode926_FlipStringToMonotoneIncreasing.cpp HuaWeiCode/code17.cpp HuaWeiCode/code18.cpp LeetCode/leetcode890_FindAndReplacePattern/leetcode890_FindAndReplacePattern.cpp
+        LeetCode/leetcode205_IsomorphicStrings/leetcode205_IsomorphicStrings.cpp
+        LeetCode/leetcode290_WordPattern/leetcode290_WordPattern.cpp
+        LeetCode/leetcode1051_HeightChecker/leetcode1051_HeightChecker.cpp
+        LeetCode/leetcode450_DeleteNodeInABST/leetcode450_DeleteNodeInABST.cpp
+        LeetCode/leetcode554_BrickWall/leetcode554_BrickWall.cpp
+        LeetCode/leetcode227_BasicCalculatorII/leetcode227_BasicCalculatorII.cpp
+        LeetCode/leetcode532_KdiffPairsInAnArray/leetcode532_KdiffPairsInAnArray.cpp
+        "LeetCode/leetcode6_ ZigzagConversion/leetcode6_ ZigzagConversion.cpp"
+        LeetCode/leetcode912_SortAnArray/leetcode912_SortAnArray.cpp
+        LeetCode/leetcode485_MaxConsecutiveOnes/leetcode485_MaxConsecutiveOnes.cpp
+        LeetCode/leetcode495_TeemoAttacking/leetcode495_TeemoAttacking.cpp
+        LeetCode/leetcode414_ThirdMaximumNumber/leetcode414_ThirdMaximumNumber.cpp
+        LeetCode/leetcode628_MaximumProductOfThreeNumbers/leetcode628_MaximumProductOfThreeNumbers.cpp
+        LeetCode/leetcode645_SetMismatch/leetcode645_SetMismatch.cpp
+        LeetCode/leetcode442_FindAllDuplicatesInAnArray/leetcode442_FindAllDuplicatesInAnArray.cpp
+        LeetCode/leetcode274_HIndex/leetcode274_HIndex.cpp
+        LeetCode/leetcode453_MinimumMovesToEqualArrayElements/leetcode453_MinimumMovesToEqualArrayElements.cpp
+        LeetCode/leetcode665_NonDecreasingArray/leetcode665_NonDecreasingArray.cpp
+        LeetCode/leetcode118_PascalsTriangle/leetcode118_PascalsTriangle.cpp LeetCode/leetcode119_PascalsTriangleII/leetcode119_PascalsTriangleII.cpp LeetCode/leetcode661_ImageSmoother/leetcode661_ImageSmoother.cpp LeetCode/leetcode598_RangeAdditionII/leetcode598_RangeAdditionII.cpp LeetCode/leetcode520_DetectCapital/leetcode520_DetectCapital.cpp LeetCode/leetcode125_ValidPalindrome/leetcode125_ValidPalindrome.cpp LeetCode/leetcode434_NumberOfSegmentsInAString/leetcode434_NumberOfSegmentsInAString.cpp)

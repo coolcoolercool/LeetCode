@@ -17,8 +17,6 @@ public:
 
 		string res;
 		if (size == 0) return res;
-
-
 		for (int i = 0; i < strs[0].size(); i++) {
 			char e = strs[0][i];
 			for (auto &str : strs) {

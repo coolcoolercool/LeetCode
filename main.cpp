@@ -4,20 +4,23 @@ using namespace std;
 
 class Solution {
 public:
-	int hIndex(vector<int>& citations) {
-		int size = citations.size();
-		sort(citations.begin(), citations.end());
-
-		int res = 0;
-		for(int i = 0; i < size; i++) {
-			if (i > 0 && citations[i] == citations[i - 1]) {
-				continue;
+	bool isPalindrome(string s) {
+		int size = s.size();
+		int left = 0, right = size - 1;
+		while(left < right) {
+			while(!isalnum(s[left]) && left < right) {
+				left++;
 			}
-			int hIndex = min(citations[i], size - i);
-			res = max(hIndex, res);
+			while(!isalnum(s[right]) && left < right) {
+				right--;
+			}
+			if (left != right && toupper(s[left]) != toupper(s[right])) {
+				return false;
+			}
+			left++, right--;
 		}
 
-		return res;
+		return true;
 	}
 };
 
@@ -30,17 +33,17 @@ void print_vector(const vector<int>& vec) {
 
 int main() {
 	Solution sol;
-	vector<int> nums = {3,0,6,1,5};
-	vector<vector<int>> nums_vec = {{1,2,3},
-	                                {4,5,6},
-	                                {7,8,9},
+	vector<int> nums = {0,1,0,3,12};
+	vector<vector<int>> nums_vec = {{100,200,100},
+	                                {200,50,200},
+	                                {100,200,100},
 	};
 	vector<vector<char>> nums_vec_char = {{'1', '1', '1', '1', '0'},
 	                                      {'1', '1', '0', '1', '0'},
 	                                      {'1', '1', '0', '0', '0'},
 	                                      {'0', '0', '0', '0', '0'}};
 	vector<string> input_vec_string = {};
-	string str_input = "  hello world  ";
+	string str_input = "A man, a plan, a canal: Panama";
 	string str_input1 = "dog cat cat dog";
 	int int_input1 = 0;
 	int int_input2 = 8;
@@ -53,12 +56,12 @@ int main() {
 	int res_int = 0;
 	bool res_bool = false;
 
-	res_int = sol.hIndex(nums);
-	 cout << res_int << endl;
-	// cout << res_bool << endl;
+	res_bool = sol.isPalindrome(str_input);
+	// cout << res_int << endl;
+	cout << res_bool << endl;
 	// print_vector_vector(res_vec_vec_int);
 	// print_vector_vector(res_vec_vec_string);
-	print_vector(res_vec);
+	//print_vector(nums);
 
 	return 0;
 }
