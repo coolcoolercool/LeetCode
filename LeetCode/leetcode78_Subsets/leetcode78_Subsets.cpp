@@ -10,6 +10,8 @@
  因此不需要手写结束条件,直接加入结果集,表现在往常的递归终止条件的地方没有返回
 
  DFS和回溯法主要区别在于状态重置，DFS在访问过一个结点之后会标记为访问过，这个标记不会被撤销。回溯法也会对结点进行标记，但是在回溯之后会撤销这个标记。例如寻找条路径，DFS在找到一条后就会结束，回溯法可以将所有的路径找到。
+
+ 2022-12-04
  */
 
 class Solution {
@@ -20,7 +22,7 @@ public:
 		if (path.size() <= nums.size()) res.push_back(path); 		// 注意这里的添加单个可能的条件，并没有返回，因为是子集
 		for (int i = startIndex; i < nums.size(); i++) {
 			path.push_back(nums[i]);
-			dfs(nums, i + 1);
+			dfs(nums, i + 1);  // 注意这里是 i+ 1， 不是 startIndex + 1
 			path.pop_back();
 		}
 	}

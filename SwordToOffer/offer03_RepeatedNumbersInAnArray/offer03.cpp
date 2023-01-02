@@ -16,15 +16,18 @@ using namespace std;
 class Solution {
 public:
 	int findRepeatNumber(vector<int>& nums) {
-		for(int i = 0; i < nums.size(); i++) {
-			int index = abs(nums[i]);
-			if(nums[index] < 0) {
-				return abs(nums[i]);
+		int i = 0;
+		while(i < nums.size()) {
+			if (nums[i] == i) {
+				i++;
+				continue;
 			} else {
-				nums[index] = -abs(nums[index]);
+				if (nums[nums[i]] == nums[i]) {
+					return nums[i];
+				}
+				swap(nums[nums[i]], nums[i]);
 			}
 		}
-
 		return -1;
 	}
 };

@@ -18,18 +18,18 @@ https://leetcode-cn.com/problems/subsets-ii/solution/90-zi-ji-iiche-di-li-jie-zi
 
  也可以使用set 去重
 
-
+2022-12-04
  */
 
 class SolutionMethod {
 private:
 	vector<vector<int>> res;
 	vector<int> oneRes;
-	void help (vector<int>& nums, int startIndex) {
+	void help (vector<int>& nums, int start) {
 		res.push_back(oneRes);
 
-		for (int i = startIndex; i < nums.size(); i++) {
-			if (i > startIndex && nums[i - 1] == nums[i])  continue; 			// 注意这里是 i > starIndex，核心代码
+		for (int i = start; i < nums.size(); i++) {
+			if (i > start && nums[i - 1] == nums[i])  continue; 			// 注意这里是 i > starIndex，核心代码
 			oneRes.push_back(nums[i]);
 			help(nums, i + 1);
 			oneRes.pop_back();

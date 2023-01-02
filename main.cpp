@@ -1,30 +1,31 @@
-#include "./include.h"
 #include <bits/stdc++.h>
 using namespace std;
 
 class Solution {
 public:
-	bool isPalindrome(string s) {
-		int size = s.size();
-		int left = 0, right = size - 1;
-		while(left < right) {
-			while(!isalnum(s[left]) && left < right) {
-				left++;
+	void nextPermutation(vector<int>& nums) {
+		int size = nums.size();
+		int index = 0;
+		for(index = size - 2; index >= 0; index--) {
+			if(nums[index] < nums[index + 1]) {
+				break;
 			}
-			while(!isalnum(s[right]) && left < right) {
-				right--;
-			}
-			if (left != right && toupper(s[left]) != toupper(s[right])) {
-				return false;
-			}
-			left++, right--;
 		}
-
-		return true;
+		if (index == -1) {
+			reverse(nums.begin(), nums.end());
+		} else {
+			for(int j = size - 1; j >= 0; j--) {
+				if (nums[j] > nums[index]) {
+					swap(nums[index], nums[j]);
+					reverse(nums.begin() + index + 1, nums.end());
+					break;
+				}
+			}
+		}
 	}
 };
 
-void print_vector(const vector<int>& vec) {
+void print_vector(const vector<int> &vec) {
 	for (int i = 0; i < vec.size(); i++) {
 		cout << vec[i] << ", ";
 	}
@@ -33,16 +34,16 @@ void print_vector(const vector<int>& vec) {
 
 int main() {
 	Solution sol;
-	vector<int> nums = {0,1,0,3,12};
-	vector<vector<int>> nums_vec = {{100,200,100},
-	                                {200,50,200},
-	                                {100,200,100},
+	vector<int> nums = {1,8,5,7,6,4};
+	vector<vector<int>> nums_vec = {{100, 200, 100},
+	                                {200, 50,  200},
+	                                {100, 200, 100},
 	};
 	vector<vector<char>> nums_vec_char = {{'1', '1', '1', '1', '0'},
 	                                      {'1', '1', '0', '1', '0'},
 	                                      {'1', '1', '0', '0', '0'},
 	                                      {'0', '0', '0', '0', '0'}};
-	vector<string> input_vec_string = {};
+	vector<string> input_vec_string = {"flower","flow","flight"};
 	string str_input = "A man, a plan, a canal: Panama";
 	string str_input1 = "dog cat cat dog";
 	int int_input1 = 0;
@@ -56,12 +57,13 @@ int main() {
 	int res_int = 0;
 	bool res_bool = false;
 
-	res_bool = sol.isPalindrome(str_input);
+	sol.nextPermutation(nums);
 	// cout << res_int << endl;
-	cout << res_bool << endl;
+	// cout << res_bool << endl;
+	// cout << resStr << endl;
 	// print_vector_vector(res_vec_vec_int);
 	// print_vector_vector(res_vec_vec_string);
-	//print_vector(nums);
+	print_vector(nums);
 
 	return 0;
 }

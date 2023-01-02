@@ -16,6 +16,9 @@
 2、如果 left < n，左括号的个数小于n，则在当前序列str后拼接左括号。
 3、如果 left < n && left > right , 右括号的个数小于左括号的个数，则在当前序列str后拼接右括号。
 4、当 left == n && right == n 时，将当前合法序列str加入答案数组res中。
+
+1207
+
  */
 
 
@@ -23,20 +26,21 @@ class Solution {
 	// dfs做。 当前括号序列中左括号数量小于N，可以继续添加左括号； 当前括号序列中右括号数量小于左括号数量，可以继续添加右括号。
 public:
 	vector<string> res;
-	void help(int n, int left, int right, string& oneRes) {
+	string oneRes;
+	void help(int n, int left, int right) {
 		if(left == n && right == n) {
 			res.push_back(oneRes);
 			return;
 		} else {
 			if(left < n) {  // 拼接左括号
 				oneRes.push_back('(');
-				help(n, left + 1, right, oneRes);
+				help(n, left + 1, right);
 				oneRes.pop_back();
 			}
 
-			if(right < n && right < left) {  // 注意这里的条件，right < left 才是合法的括号组合
+			if(right < n && right < left) {  // 注意这里的条件，left > right 才是合法的括号组合
 				oneRes.push_back(')');
-				help(n, left, right + 1, oneRes);
+				help(n, left, right + 1);
 				oneRes.pop_back();
 			}
 		}
@@ -44,7 +48,7 @@ public:
 
 	vector<string> generateParenthesis(int n) {  // 这里n是括号对数，即生成的括号字符串长度为 2n
 		string oneRes;
-		help(n, 0, 0, oneRes);
+		help(n, 0, 0);
 		return res;
 	}
 };

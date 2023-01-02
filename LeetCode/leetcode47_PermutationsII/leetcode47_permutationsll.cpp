@@ -13,6 +13,8 @@
 也就是2和2' 以及 2'和2一定会重复，则整体剪枝，且是提前剪枝，在红色选择处就剪枝
 
  https://leetcode.cn/problems/permutations-ii/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liwe-2/
+
+ 2022-12-04
  */
 
 class Solution {
@@ -34,9 +36,8 @@ public:
 
 				visited[i] = true;
 				oneRes.push_back(nums[i]);
-
 				dfs_unique(nums, visited);
-				visited[i] = false;                // 回退到前一步
+				visited[i] = false;   // 回退到前一步
 				oneRes.pop_back();
 			}
 		}
