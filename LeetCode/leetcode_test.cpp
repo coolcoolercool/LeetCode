@@ -4,25 +4,24 @@ using namespace std;
 
 class Solution {
 public:
-	int lengthOfLongestSubstring(string s) {
-		set<char> innerSet;
-		int left = 0, right = 0;
-		int maxLenSubstring = 1;
+	void rotate(vector<vector<int>>& matrix) {
+		int col = matrix.size();
+		int row = col;
 
-		while(left <= right && right < s.size()) {
-			if (innerSet.count(s[right]) != 0) {
-				innerSet.erase(s[left]);
-				left++;
-			} else {
-				innerSet.insert(s[right]);
-				right++;
-				if (innerSet.size() > maxLenSubstring) {
-					maxLenSubstring = innerSet.size();
-				}
+		for(int i = 0; i < col; i++) {
+			int low = 0, high = col - 1;
+			while(low < high) {
+				swap(matrix[low][i], matrix[high][i]);
+				low++;
+				high--;
 			}
 		}
 
-		return maxLenSubstring;
+		for(int i = 0; i < row; i++) {
+			for(int j = 0; j < i; j++) {
+				swap(matrix[i][j], matrix[j][i]);
+			}
+		}
 	}
 };
 
@@ -44,7 +43,7 @@ int main_okmnj8() {
 	vector<int> res;
 	string resStr;
 
-	resultInt = sol.lengthOfLongestSubstring(str);
+	// resultInt = sol.lengthOfLongestSubstring(str);
 
 	//print_vector(res);
 	cout << "resultInt: " << resStr << endl;

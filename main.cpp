@@ -3,25 +3,20 @@ using namespace std;
 
 class Solution {
 public:
-	void nextPermutation(vector<int>& nums) {
-		int size = nums.size();
-		int index = 0;
-		for(index = size - 2; index >= 0; index--) {
-			if(nums[index] < nums[index + 1]) {
-				break;
+	int maxArea(vector<int>& height) {
+		int maxArea = 0;
+		int left = 0, right = height.size() - 1;
+		while(left < right) {
+			int area = (right - left) * min(height[left], height[right]);
+			maxArea = max(maxArea, area);
+
+			if (height[left] < height[right]) {
+				left++;
+			} else {
+				right--;
 			}
 		}
-		if (index == -1) {
-			reverse(nums.begin(), nums.end());
-		} else {
-			for(int j = size - 1; j >= 0; j--) {
-				if (nums[j] > nums[index]) {
-					swap(nums[index], nums[j]);
-					reverse(nums.begin() + index + 1, nums.end());
-					break;
-				}
-			}
-		}
+		return maxArea;
 	}
 };
 
@@ -32,6 +27,7 @@ void print_vector(const vector<int> &vec) {
 	cout << endl;
 }
 
+/*
 int main() {
 	Solution sol;
 	vector<int> nums = {1,8,5,7,6,4};
@@ -67,3 +63,4 @@ int main() {
 
 	return 0;
 }
+ */

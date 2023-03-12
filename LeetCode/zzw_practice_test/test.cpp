@@ -10,12 +10,12 @@
 
 using namespace std;
 
-int cnt = 0;
+int cntcount = 0;
 vector<string> ans;
 
 void dfs(int n, int cur, string s) {
 	if (cur == n) {
-		cnt++;
+		cntcount++;
 		ans.push_back(s);
 		return;
 	}
@@ -28,7 +28,7 @@ int main_0ok1km() {
 	int n;
 	cin >> n;
 	dfs(n, 0, "0");
-	cout << cnt << endl;
+	cout << cntcount << endl;
 	for (auto &s : ans) {
 		cout << s << endl;
 	}

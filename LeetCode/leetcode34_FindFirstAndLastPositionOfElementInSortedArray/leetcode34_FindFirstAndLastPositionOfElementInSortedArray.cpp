@@ -64,9 +64,7 @@ public:
 				right = mid - 1;
 			}
 		}
-
 		res[1] = right;
-
 		return res;
 	}
 };

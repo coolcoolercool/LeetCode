@@ -30,7 +30,6 @@
  *
 
 1207
-
  */
 
 class Solution {
