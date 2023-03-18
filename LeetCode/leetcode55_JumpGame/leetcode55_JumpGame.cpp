@@ -28,13 +28,13 @@
 class Solution {
 public:
 	bool canJump(vector<int> &nums) {
-		int n = nums.size(), right_most = 0;
+		int size = nums.size(), right_most = 0;
 
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < size; i++) {
 			if (i <= right_most) {  // rightMost 表示目前可以到达最远的index的位置，index以及之前的索引都可以达到
 				right_most = max(right_most, i + nums[i]);  // 比较之前的可以到达的最远的位置和当前位置可以到达最远的位置，取较大值
 
-				if (right_most >= n - 1) return true;
+				if (right_most >= size - 1) return true;
 			}
 		}
 

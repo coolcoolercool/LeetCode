@@ -36,13 +36,11 @@ class Solution {
 public:
 	vector<vector<int>> threeSum(vector<int>& nums) {
 		vector<vector<int>> res;
-
 		if (nums.size() < 3) {
 			return res;
 		}
 		// 需要先排序
 		std::sort(nums.begin(), nums.end());
-
 		int left = 0, right = 0;
 		for (int i = 0; i < nums.size(); i++) {
 			// 避免 重复的情况

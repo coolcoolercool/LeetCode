@@ -57,7 +57,7 @@ void* threadC(void* args) {
 	return NULL;
 }
 
-int main() {
+int main_ok98jn() {
 	pthread_t tA, tB, tC;
 	pthread_mutex_init(&mtx, NULL);
 	pthread_create(&tA, NULL, threadA, NULL);

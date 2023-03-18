@@ -8,7 +8,7 @@ add_executable(leetcode main.cpp
         LeetCode/leetcode139_WordBreak/leetcode139_WordBreak.cpp
         LeetCode/leetcode1_TwoSum/leetcode1_TwoSum.cpp
         LeetCode/leetcode2_AddTwoNumbers/leetcode2_AddTwoNumbers.cpp
-        LeetCode/leetcode3_LongestSubstringWithoutRepeatedCharacters/leetcode3_longest_substring.cpp
+        LeetCode/leetcode3_LongestSubstringWithoutRepeatedCharacters/leetcode3_longestSubstring.cpp
         LeetCode/leetcode5_LongestPalindromicSubstring/leetcode5_LongestPalindromicSubstring.cpp
         LeetCode/leetcode11_ContainerWithMostWater/leetcode11_ContainerWithMostWater.cpp
         LeetCode/leetcode15_3Sum/leetcode15_3Sum.cpp

@@ -66,7 +66,7 @@ public:
 			}
 		}
 
-		return s.substr(right - resLen + 1, resLen);
+		return s.substr(right - resLen + 1, resLen); // 起始点，长度， 主要这里要+1，right是从0开始计数的
 	}
 
 	// https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-nehzil-y1tc/

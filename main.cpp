@@ -1,22 +1,12 @@
 #include <bits/stdc++.h>
+#include "include.h"
+
 using namespace std;
 
 class Solution {
 public:
-	int maxArea(vector<int>& height) {
-		int maxArea = 0;
-		int left = 0, right = height.size() - 1;
-		while(left < right) {
-			int area = (right - left) * min(height[left], height[right]);
-			maxArea = max(maxArea, area);
+	string convert(string s, int numRows) {
 
-			if (height[left] < height[right]) {
-				left++;
-			} else {
-				right--;
-			}
-		}
-		return maxArea;
 	}
 };
 
@@ -27,7 +17,6 @@ void print_vector(const vector<int> &vec) {
 	cout << endl;
 }
 
-/*
 int main() {
 	Solution sol;
 	vector<int> nums = {1,8,5,7,6,4};
@@ -40,7 +29,7 @@ int main() {
 	                                      {'1', '1', '0', '0', '0'},
 	                                      {'0', '0', '0', '0', '0'}};
 	vector<string> input_vec_string = {"flower","flow","flight"};
-	string str_input = "A man, a plan, a canal: Panama";
+	string str_input = "PAYPALISHIRING";
 	string str_input1 = "dog cat cat dog";
 	int int_input1 = 0;
 	int int_input2 = 8;
@@ -53,14 +42,13 @@ int main() {
 	int res_int = 0;
 	bool res_bool = false;
 
-	sol.nextPermutation(nums);
+	resStr = sol.convert(str_input, 3);
 	// cout << res_int << endl;
 	// cout << res_bool << endl;
-	// cout << resStr << endl;
+	cout << resStr << endl;
 	// print_vector_vector(res_vec_vec_int);
 	// print_vector_vector(res_vec_vec_string);
 	print_vector(nums);
 
 	return 0;
 }
- */
