@@ -17,9 +17,8 @@ class Solution {
 public:
 	string convert(string s, int numRows) {
 		if (numRows == 1) return s;
-		int size = s.size();
 
-		vector<string> rows(min(numRows, size)); // 防止s的长度小于行数
+		vector<string> rows(numRows); // 防止s的长度小于行数, 目前从leetcode用例上不用这个
 		int curRow = 0;
 		bool downOrUp = false;
 

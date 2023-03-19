@@ -2,12 +2,14 @@
 
 /**
 题目描述:
+ 将一个32位的整数反转
+32位整数最大为 2147483647， 最小为 -2147483648
 
 核心思想:
+以此从右到左取整数的数字，然后以此计算反转的后的值， 但是需要注意溢出的问题
 **/
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
 class Solution {
@@ -15,7 +17,7 @@ public:
 	int reverse(int x) {
 		int res = 0;
 		while (x != 0) {
-			if (res < INT_MIN / 10 || res > INT_MAX / 10) {
+			if (res < INT_MIN / 10 || res > INT_MAX / 10) { // 处理结果溢出的场景
 				return 0;
 			}
 			int digit = x % 10;

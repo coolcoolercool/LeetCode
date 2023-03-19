@@ -5,7 +5,7 @@ using namespace std;
 
 class Solution {
 public:
-	string convert(string s, int numRows) {
+	vector<vector<int>> merge(vector<vector<int>>& intervals) {
 
 	}
 };
@@ -19,7 +19,7 @@ void print_vector(const vector<int> &vec) {
 
 int main() {
 	Solution sol;
-	vector<int> nums = {1,8,5,7,6,4};
+	vector<int> nums = {-1,0,1,2,-1,-4};
 	vector<vector<int>> nums_vec = {{100, 200, 100},
 	                                {200, 50,  200},
 	                                {100, 200, 100},
@@ -42,13 +42,13 @@ int main() {
 	int res_int = 0;
 	bool res_bool = false;
 
-	resStr = sol.convert(str_input, 3);
+	res_vec_vec_int = sol.threeSum(nums);
 	// cout << res_int << endl;
 	// cout << res_bool << endl;
-	cout << resStr << endl;
-	// print_vector_vector(res_vec_vec_int);
+	// cout << resStr << endl;
+	 print_vector_vector(res_vec_vec_int);
 	// print_vector_vector(res_vec_vec_string);
-	print_vector(nums);
+	// print_vector(nums);
 
 	return 0;
 }

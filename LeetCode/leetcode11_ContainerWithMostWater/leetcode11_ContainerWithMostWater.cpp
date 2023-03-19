@@ -2,7 +2,7 @@
 /**
 
 
-1204
+1204 0318
  */
 
 class Solution {
@@ -14,7 +14,7 @@ public:
 		while (left < right) {
 			int area = (right - left) * min(height[left], height[right]);
 			maxArea = max(maxArea, area);
-			// 移动高度大的柱子，面积一定会减少，移动高度小的柱子，面积变化不定
+			// 移动高度大的柱子，面积一定会减少，移动高度小的柱子，面积变化不定, 所以移动小的
 			if (height[left] < height[right]) {
 				left++;
 			} else {

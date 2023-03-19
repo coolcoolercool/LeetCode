@@ -15,16 +15,14 @@ class Solution {
 	bool isPalindrome(int x) {
 		if (x < 0) return false;
 
-		int cur = 0;
+		int res = 0;
 		int num = x;
 		while (num != 0) {
-			if (cur > INT_MAX / 10 || (cur == INT_MAX && num % 10 > 7)) {
-				return false;
-			}
-			cur = cur * 10 + num % 10;
+			if(res > INT_MAX / 10) return false;
+			res = res * 10 + num % 10;
 			num /= 10;
 		}
-		return cur == x;
+		return res == x;
 	}
 
 	// 当然最简单的还是变成字符串，reverse比较一下即可

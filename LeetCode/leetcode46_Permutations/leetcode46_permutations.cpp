@@ -38,7 +38,6 @@ public:
 		// 递归终止条件
 		if (oneRes.size() == nums.size()) {
 			res.push_back(oneRes);
-			return;
 		} else {
 			for (int i = 0; i < nums.size(); i++) {
 				if (used[i]) continue;   // 如果已经使用过，则直接跳过

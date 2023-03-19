@@ -3,7 +3,7 @@
 class Solution {
 public:
 	unordered_map<char, char> mp = {
-			{'(', '('},
+			{')', '('},
 			{'}', '{'},
 			{']', '['},
 	};
