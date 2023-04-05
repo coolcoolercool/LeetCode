@@ -9,7 +9,6 @@
 **/
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
 class Solution {
@@ -21,8 +20,8 @@ public:
 		string res;  // 保存解码后的字符串结果
 
 		int num = 0;
-		int len = s.size();
-		for (int i = 0; i < len; ++i) {
+		int size = s.size();
+		for (int i = 0; i < size; ++i) {
 			if (s[i] >= '0' && s[i] <= '9') {
 				num = num * 10 + s[i] - '0'; // 因为数字可能是多位数，并不一定只是一位数
 			} else if ((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z')) {
@@ -39,7 +38,7 @@ public:
 				string tempRes = strStack.top(); //之后若还是字母，就会直接加到res之后，因为它们是同一级的运算
 				strStack.pop(); //若是左括号，res会被压入strs栈，作为上一层的运算
 
-				for (int j = 0; j < times; ++j) tempRes += res;
+				for (int j = 0; j < times; ++j) tempRes += res; // 这里的res，其实累计了[]之间的字符串
 				res = tempRes;
 			}
 		}

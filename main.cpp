@@ -2,33 +2,38 @@
 #include "include.h"
 
 using namespace std;
-
 class Solution {
 public:
-	int findMaximizedCapital(int k, int w, vector<int>& profits, vector<int>& capital) {
-		int size = profits.size();
-		priority_queue<int, vector<int>, less<int>> pq;
-		vector<pair<int, int>> vec;
-
-		for(int i = 0; i < size; i++) {
-			vec.push_back(pair<int, int>{capital[i], profits[i]});
-		}
-		sort(vec.begin(), vec.end());
-		int curIndex = 0;
-		for(int i = 0; i < k; i++) {
-			while(curIndex < size && vec[curIndex].first <= w) {
-				pq.push(vec[curIndex].second);
-				curIndex++;
-			}
-			if(!pq.empty()) {
-				w += pq.top();
-				pq.pop();
-			} else {
-				break;
-			}
+	int myAtoi(string s) {
+		int size = s.size();
+		int index = 0;
+		while(index < size && s[index] == ' ') {
+			index++;
 		}
 
-		return w;
+		bool flag = true;
+		if(s[index] == '-') {
+			flag = false;
+			index++;
+		} else if(s[index] == '+') {
+			index++;
+		}
+
+		long res = 0;
+		while(index < size) {
+			if(s[index] < '0' || s[index] > '9') break;
+			res = res * 10 + s[index] - '0';
+			if ((res > INT_MAX && flag) || (res * -1 < INT_MIN && !flag)) {
+				if(flag) return INT_MAX;
+				else return INT_MIN;
+			}
+			index++;
+		}
+		if(flag) {
+			return res;
+		} else{
+			return -res;
+		}
 	}
 };
 

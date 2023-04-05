@@ -16,11 +16,13 @@ https://leetcode.cn/problems/longest-common-subsequence/solution/zui-chang-gong-
 **/
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
 class Solution {
 public:
+	// LCS
+	// dp[i][j] 表示 str1[0:i-1] 和 str2[0:j-1] 的最长公共子序列的长度, 所以比较的是str1[i-1]和str2[j-1]
+	// dp[size1][size2] 表示 str1 和 str2 的最长公共子序列的长度
 	int longestCommonSubsequence(string text1, string text2) {
 		int size1 = text1.size(), size2 = text2.size();
 		vector<vector<int>> dp(size1 + 1, vector<int>(size2 + 1));

@@ -27,8 +27,14 @@ public:
 	}
 
 	// 递归解法
-	ListNode* reverseList_0(ListNode* head) {
-		if (!head || !head->next) return head;
+	// https://leetcode.cn/problems/reverse-linked-list/solutions/36710/dong-hua-yan-shi-206-fan-zhuan-lian-biao-by-user74/?orderBy=most_votes
+	/*
+	  递归的两个条件：
+	  1. 终止条件是当前节点或者下一个节点为空节点
+	  2. 在函数内部，改变节点的指向，也就是 head 的下一个节点指向 head 递归函数
+	 */
+	ListNode* reverseList_recurrence(ListNode* head) {
+		if (head == nullptr || head->next == nullptr) return head;
 		ListNode* newHead = reverseList(head->next);
 		head->next->next = head;
 		head->next = nullptr;

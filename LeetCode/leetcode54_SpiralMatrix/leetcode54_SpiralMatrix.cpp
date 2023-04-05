@@ -2,10 +2,11 @@
 
 /**
 题目描述:
+https://leetcode.cn/problems/spiral-matrix/
 给你一个 m 行 n 列的矩阵 matrix ，请按照 顺时针螺旋顺序 ，返回矩阵中的所有元素。
 
 核心思想:
- 层次遍历，设置好四个变量表示上下左右
+层次遍历，设置好四个变量表示上下左右
 
 解法概括:
 设立四个边界，不断移动缩小
@@ -16,12 +17,11 @@ using namespace std;
 
 class Solution {
 public:
-	vector<int> spiralOrder(vector<vector<int>> &matrix) {
+	vector<int> spiralOrder(vector<vector<int>>& matrix) {
 		vector<int> res;
 		if(matrix.empty()) return res;
 
 		int rows = matrix.size(), cols = matrix[0].size();
-
 		int left = 0;
 		int right = cols - 1;
 		int top = 0;
@@ -44,7 +44,7 @@ public:
 				count--;
 			}
 			bottom--;
-			for (int i = bottom; i >= top && count >= 1; i--) { // bottom -> top， 此时纵坐标是 left
+			for (int i = bottom; i >= top && count >= 1; i--) { // bottom -> top，此时纵坐标是 left
 				res.push_back(matrix[i][left]);
 				count--;
 			}

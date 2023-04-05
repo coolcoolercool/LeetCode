@@ -39,7 +39,7 @@ public:
 		if(s[index] == '-') flag = -1; // 如果存在 负号，记录 flag 为-1
 		if(s[index] == '-' || s[index] == '+') index++; // 往下处理数字部分
 
-		while(index < s.size() && isdigit(s[index])) {
+		while(index < s.size() && isdigit(s[index])) { // isdigit 判断字符是否为十进制数字的字符
 			int num = s[index] - '0';
 			if(res > INT_MAX / 10 || (res == INT_MAX / 10 && num > 7)) { // 判断是否溢出 2147483647
 				return flag > 0 ? INT_MAX : INT_MIN;
@@ -50,5 +50,28 @@ public:
 
 		return flag * res;
 	}
+
+	// 这里判断有一种简单的做法， 就是将 res设置为long
+	int myAtoi_1(string s) {
+		long res = 0;
+		int index = 0;
+		int flag = 1;
+
+		while(s[index] == ' ') index++; // 跳过空格
+		if(s[index] == '-') flag = -1; // 如果存在 负号，记录 flag 为-1
+		if(s[index] == '-' || s[index] == '+') index++; // 往下处理数字部分
+
+		while(index < s.size() && isdigit(s[index])) { // isdigit 判断字符是否为十进制数字的字符
+			int num = s[index] - '0';
+			res = res * 10 + num;
+			if ((flag && res > INT_MAX) || (!flag && res * -1 < INT_MIN)) {
+				return flag > 0 ? INT_MAX : INT_MIN;
+			}
+			index++;
+		}
+
+		return flag * res;
+	}
+
 };
 

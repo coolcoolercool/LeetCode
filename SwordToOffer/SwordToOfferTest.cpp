@@ -23,7 +23,7 @@ public:
 	}
 };
 
-int main() {
+int main_okmn98() {
 	Solution sol;
 	vector<int> vec = {2, 3, 1, 0, 2, 5, 3};
 
