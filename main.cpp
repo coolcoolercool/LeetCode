@@ -4,36 +4,21 @@
 using namespace std;
 class Solution {
 public:
-	int myAtoi(string s) {
-		int size = s.size();
-		int index = 0;
-		while(index < size && s[index] == ' ') {
-			index++;
-		}
-
-		bool flag = true;
-		if(s[index] == '-') {
-			flag = false;
-			index++;
-		} else if(s[index] == '+') {
-			index++;
-		}
-
-		long res = 0;
-		while(index < size) {
-			if(s[index] < '0' || s[index] > '9') break;
-			res = res * 10 + s[index] - '0';
-			if ((res > INT_MAX && flag) || (res * -1 < INT_MIN && !flag)) {
-				if(flag) return INT_MAX;
-				else return INT_MIN;
+	int kthLargest(TreeNode* root, int k) {
+		stack<TreeNode*> st;
+		while(root != nullptr || !st.empty()) {
+			while(root != nullptr) {
+				st.push(root);
+				root = root->left;
 			}
-			index++;
+			root = st.top();
+			st.pop();
+			k--;
+			if (k == 0) return root->val;
+			root = root->right;
 		}
-		if(flag) {
-			return res;
-		} else{
-			return -res;
-		}
+
+		return -1;
 	}
 };
 
@@ -44,7 +29,7 @@ void print_vector(const vector<int> &vec) {
 	cout << endl;
 }
 
-int main_0omj7() {
+int main() {
 	Solution sol;
 	vector<int> nums = {-1,0,1,2,-1,-4};
 	vector<vector<int>> nums_vec = {{100, 200, 100},
@@ -56,7 +41,7 @@ int main_0omj7() {
 	                                      {'1', '1', '0', '0', '0'},
 	                                      {'0', '0', '0', '0', '0'}};
 	vector<string> input_vec_string = {"flower","flow","flight"};
-	string str_input = "PAYPALISHIRING";
+	string str_input = "bbbbb";
 	string str_input1 = "dog cat cat dog";
 	int int_input1 = 0;
 	int int_input2 = 8;
@@ -69,13 +54,13 @@ int main_0omj7() {
 	int res_int = 0;
 	bool res_bool = false;
 
-	// res_vec_vec_int = sol.threeSum(nums);
-	// cout << res_int << endl;
+	// sol.mergeSort(nums);
+	//cout << res_int << endl;
 	// cout << res_bool << endl;
 	// cout << resStr << endl;
 	// print_vector_vector(res_vec_vec_int);
 	// print_vector_vector(res_vec_vec_string);
-	// print_vector(nums);
+	print_vector(nums);
 
 	return 0;
 }

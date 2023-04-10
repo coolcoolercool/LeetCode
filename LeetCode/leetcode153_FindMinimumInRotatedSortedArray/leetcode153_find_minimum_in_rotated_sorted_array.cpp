@@ -1,7 +1,10 @@
 #include "../../include.h"
 
 /**
- * 题目: 循转递增数组，元素互不相同，找最小值
+题目: 循转递增数组，元素互不相同，找最小值
+
+题目解析:
+ https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/solutions/126635/er-fen-cha-zhao-wei-shi-yao-zuo-you-bu-dui-cheng-z/
  */
 
 class Solution {
@@ -12,7 +15,7 @@ public:
 			int mid = left + (right - left) / 2;
 			if (nums[mid] < nums[right]) { // 最小值在左边, left ~ mid
 				right = mid;   // 这里 right = mid，是为了避免遗漏 mid 就是最小值的情况
-			} else { // 最小值在右边，mid + 1 ～ right
+			} else { // 最小值在右边，mid + 1 ～ right (nums[mid] > nums[right])
 				left = mid + 1;
 			}
 		}

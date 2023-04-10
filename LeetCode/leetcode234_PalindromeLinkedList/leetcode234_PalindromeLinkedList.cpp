@@ -76,6 +76,29 @@ public:
 	}
 
 public:
+	bool isPalindrome_EasyToWrite(ListNode* head) {
+		ListNode* slow = head;
+		ListNode* fast = head;
+		ListNode* cur = head;
+
+		// slow成为中间节点
+		while(fast != nullptr && fast->next != nullptr) {
+			slow = slow->next;
+			fast = fast->next->next;
+		}
+		slow = reverseList(slow); // 反转中间节点到
+
+		while(slow != nullptr && cur != nullptr) {
+			if (slow->val != cur->val) {
+				return false;
+			}
+			slow = slow->next;
+			cur = cur->next;
+		}
+		return true;
+	}
+
+public:
 	// 使用数组存储遍历链表节点的值，然后检查数组是否是回文的
 	bool isPalindrome_0(ListNode *head) {
 		if (head == nullptr || head->next == nullptr) return true;

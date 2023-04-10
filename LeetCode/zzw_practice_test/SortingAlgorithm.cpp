@@ -32,8 +32,8 @@ public:
 	 * @param mid
 	 * @param right
 	 */
-	void merge(int arr[], int left, int mid, int right) {
-		int* tempArr = new int[right - left + 1];
+	void merge(vector<int>& arr, int left, int mid, int right) {
+		vector<int> tempArr(right - left + 1); // 注意这里要初始化size
 		int curLeft = left;  //左子数组的当前索引，从left开始， left ～ mid
 		int curRight = mid + 1;  //右子数组的当前索引，从mid+1开始，mid + 1 ～ right
 		int curIndex = 0; // 当前tempArr数组的当前索引
@@ -69,7 +69,7 @@ public:
 	 * @param left
 	 * @param right
 	 */
-	void mergeSort(int arr[], int left, int right) {
+	void mergeSort(vector<int>& arr, int left, int right) {
 		int mid = left + (right - left) / 2;
 		if (left < right) {
 			mergeSort(arr, left, mid);
@@ -78,8 +78,8 @@ public:
 		}
 	}
 
-	void mergeSort(int arr[], int length) {
-		if (arr == nullptr || length < 2) {
+	void mergeSort(vector<int>& arr, int length) {
+		if (arr.empty() || length < 2) {
 			return;
 		}
 		mergeSort(arr, 0, length - 1);
@@ -96,18 +96,6 @@ public:
 	 * 每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。
 	 */
 
-	/**
-	 * 交换数组两个数
-	 * @param arr
-	 * @param i
-	 * @param j
-	 */
-	 void swap(int arr[], int i, int j) {
-		int temp = arr[i];
-		arr[i] = arr[j];
-		arr[j] = temp;
-	 }
-
 	 /**
 	  * 将枢纽值 pivot 放到数组合适的位置。具体说，就是数组中，枢纽值大于在它左边的元素值，小于等于在它右边元素的值.
 	  * 这里index，可以看成冒泡，找到当前自己有序应该在位置，因为index++多加了一次，所以最后 swap 的时候 mp - 1
@@ -116,48 +104,23 @@ public:
 	  * @param right
 	  * @return
 	  */
-	 int partition(int arr[], int left, int right) {
+	 int partition(vector<int>& arr, int left, int right) {
 	 	int temp = rand() % (right - left + 1) + left;
-		swap(arr, arr[temp], arr[left]);
+		swap(arr[temp], arr[left]);
 
 		int pivot = left;
 		int index = left + 1;
 	 	for (int i = index; i <= right; i++) {
 	 		if (arr[i] < arr[pivot]) {  // 将小于pivot的索引的值，放在index的左边，最后将index - 1和pivot交换，则pivot左边都是小于pivot的值
-	 			swap(arr, i, index);
+	 			swap(arr[i], arr[index]);
 	 			index++;
 	 		}
 	 	}
-	 	swap(arr, pivot, index - 1);
+	 	swap(arr[pivot], arr[index - 1]);
 	 	return index - 1;
 	 }
 
-	 int partition_1(int arr[], int left, int right) {
-	 	int pivot = left;
-	 	while(left < right) {
-	 		while(left < right && arr[right] >= arr[pivot]) {
-	 			right--;
-	 		}
-
-	 		arr[left] = arr[right];
-	 		while(left < right && arr[left] <= arr[pivot]) {
-	 			left++;
-	 		}
-
-	 		arr[left] = arr[right];
-	 	}
-
-	 	arr[left] = arr[pivot];
-	 	return left;
-	 }
-
-	 int randomized_partition(vector<int>& nums, int l, int r) {
-		 int i = rand() % (r - l) + l; // 随机选一个作为我们的主元
-		 std::swap(nums[l], nums[i]);
-	 }
-
-
-	 void quickSort(int arr[], int left, int right) {
+	 void quickSort(vector<int>& arr, int left, int right) {
 	 	if (left < right) {
 	 		int partitionIndex = partition(arr, left, right);
 	 		quickSort(arr, left, partitionIndex - 1);  //对于枢纽值的左半部分和枢纽值的右半部分，分别递归调用函数进行快排
@@ -165,8 +128,8 @@ public:
 	 	}
 	 }
 
-	 void quickSort(int arr[], int length) {
-	 	if (arr == nullptr || length < 2) {
+	 void quickSort(vector<int>& arr, int length) {
+	 	if (arr.empty() || length < 2) {
 	 		return;
 	 	}
 	 	quickSort(arr, 0, length - 1);
@@ -272,8 +235,15 @@ static void print_arr(int arr[], int length) {
 	cout << endl;
 }
 
+static void print_arr(vector<int>& arr, int length) {
+	for(int i = 0; i < length; i++) {
+		cout << arr[i] << ", ";
+	}
+	cout << endl;
+}
+
 int main_i9mk7() {
-	int arr[] = {6,2,3,5,7,4,1,8};
+	vector<int> arr = {6,2,3,5,7,4,1,8};
 	int length = 8;
 	SortingAlgorithm sort;
 	sort.quickSort(arr, length);

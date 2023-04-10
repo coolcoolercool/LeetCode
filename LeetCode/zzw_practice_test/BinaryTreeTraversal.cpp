@@ -108,16 +108,15 @@ public:
 			return res;
 		}
 		stack<TreeNode*> stk;
-		TreeNode* node = root;
-		while(!stk.empty() || node != nullptr) {
-			while(node != nullptr) {
-				stk.push(node);
-				res.push_back(node->val);
-				node = node->left;
+		while(root != nullptr || !stk.empty()) {
+			while(root != nullptr) {
+				stk.push(root);
+				res.push_back(root->val);
+				root = root->left;
 			}
-			node = stk.top(); //如果右子树没有被访问，那么将当前节点压栈，访问右子树
+			root = stk.top(); //如果右子树没有被访问，那么将当前节点压栈，访问右子树
 			stk.pop();
-			node = node->right;
+			root = root->right;
 		}
 		return res;
 	}
